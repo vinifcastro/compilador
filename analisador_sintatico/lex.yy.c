@@ -323,9 +323,6 @@ void yyfree ( void *  );
 #define YY_AT_BOL() (YY_CURRENT_BUFFER_LVALUE->yy_at_bol)
 
 /* Begin user sect3 */
-
-#define yywrap() (/*CONSTCOND*/1)
-#define YY_SKIP_YYWRAP
 typedef flex_uint8_t YY_CHAR;
 
 FILE *yyin = NULL, *yyout = NULL;
@@ -355,8 +352,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 45
-#define YY_END_OF_BUFFER 46
+#define YY_NUM_RULES 50
+#define YY_END_OF_BUFFER 51
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -364,20 +361,21 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[111] =
+static const flex_int16_t yy_accept[116] =
     {   0,
-        0,    0,   16,   16,   46,   44,   13,   14,   43,   22,
-       44,   32,   33,   39,   37,   31,   38,   40,   23,   30,
-       41,   36,   42,   25,   25,   25,   25,   25,   25,   25,
-       25,   25,   34,   35,   16,   18,   17,   13,   27,   22,
-       21,   20,    0,    0,   15,   23,   28,   26,   29,   25,
-       25,   25,   25,   25,   25,   25,   25,   25,   25,    8,
-       16,   17,   17,   19,   24,    3,   25,   25,   25,   25,
-        2,   25,   25,   25,   25,   25,   25,   25,   25,   25,
-        5,   25,   25,   25,   25,   25,    9,   25,   25,   25,
-       25,   25,   10,   25,   25,   25,   25,   25,   25,   25,
+        0,    0,    0,    0,    0,    0,   51,   49,   36,   37,
+       35,   42,   49,   27,   28,   33,   31,   26,   32,   34,
+       16,   25,   23,   22,   24,   15,   15,   14,   15,   15,
+       15,   15,   15,   15,   15,   29,   30,   41,   40,   41,
+       43,   48,   47,   50,   36,   19,    0,   38,   16,   20,
+       18,   21,   15,   15,   15,   15,   15,   15,   15,   15,
+       13,   15,   15,    8,   39,   43,   46,   44,   45,   17,
+        3,   15,   15,   15,   15,    2,   15,   15,   15,   15,
+       15,   15,   15,   15,   15,    5,   15,   15,   15,   15,
+       15,    9,   15,   15,   15,   15,   15,   10,   15,   15,
 
-        6,   12,   25,   25,    4,   11,   25,    1,    7,    0
+       15,   15,   15,   15,   15,    6,   12,   15,   15,    4,
+       11,   15,    1,    7,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -414,92 +412,90 @@ static const YY_CHAR yy_ec[256] =
 
 static const YY_CHAR yy_meta[41] =
     {   0,
-        1,    1,    2,    1,    1,    3,    1,    1,    4,    1,
-        1,    1,    1,    5,    1,    1,    1,    1,    5,    1,
-        5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
-        5,    5,    5,    5,    5,    5,    5,    5,    1,    1
+        1,    1,    2,    1,    2,    3,    1,    1,    1,    1,
+        1,    1,    1,    4,    1,    1,    1,    1,    4,    2,
+        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
+        4,    4,    4,    4,    4,    4,    4,    4,    1,    1
     } ;
 
-static const flex_int16_t yy_base[117] =
+static const flex_int16_t yy_base[121] =
     {   0,
-        0,    0,   38,   39,  144,  145,  141,  145,  125,   40,
-        0,  145,  145,  145,  145,  145,  145,  132,  126,  145,
-      122,  121,  120,    0,  115,   15,  106,  111,  103,   99,
-      108,  107,  145,  145,    0,  145,   37,  127,  145,   49,
-      145,  145,  125,  121,  145,  112,  145,  145,  145,    0,
-       92,   23,  102,  100,   87,   95,   83,   89,   83,   88,
-        0,   48,   50,  145,  145,    0,   80,   94,   81,   91,
-        0,   91,   90,   86,   79,   87,   86,   76,   82,   68,
-        0,   76,   69,   68,   70,   70,    0,   61,   62,   70,
-       74,   59,    0,   51,   61,   58,   39,   39,   43,   35,
+        0,    0,   38,   39,   40,   41,  135,  136,  132,  136,
+      116,  136,    0,  136,  136,  136,  136,  136,  136,  123,
+      117,  136,  113,  112,  111,    0,  106,   20,   97,  102,
+       94,   87,   89,   98,   97,  136,  136,  136,  136,  106,
+        0,  136,  136,   45,  116,  136,  111,  136,  102,  136,
+      136,  136,    0,   82,   20,   92,   90,   77,   85,   73,
+        0,   79,   73,   78,  136,    0,  136,  136,  136,  136,
+        0,   70,   84,   71,   81,    0,   81,   80,   76,   69,
+       77,   76,   64,   68,   43,    0,   51,   44,   43,   45,
+       44,    0,   35,   36,   44,   48,   39,    0,   32,   45,
 
-        0,    0,   39,   41,    0,    0,   35,    0,    0,  145,
-       69,   74,   79,   46,   84,   89
+       42,   35,   35,   39,   29,    0,    0,   32,   35,    0,
+        0,   32,    0,    0,  136,   80,   84,   88,   47,   92
     } ;
 
-static const flex_int16_t yy_def[117] =
+static const flex_int16_t yy_def[121] =
     {   0,
-      110,    1,  111,  111,  110,  110,  110,  110,  110,  112,
-      113,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  114,  114,  114,  114,  114,  114,  114,
-      114,  114,  110,  110,  115,  110,  116,  110,  110,  112,
-      110,  110,  112,  110,  110,  110,  110,  110,  110,  114,
-      114,  114,  114,  114,  114,  114,  114,  114,  114,  114,
-      115,  116,  116,  110,  110,  114,  114,  114,  114,  114,
-      114,  114,  114,  114,  114,  114,  114,  114,  114,  114,
-      114,  114,  114,  114,  114,  114,  114,  114,  114,  114,
-      114,  114,  114,  114,  114,  114,  114,  114,  114,  114,
+      115,    1,  116,  116,  117,  117,  115,  115,  115,  115,
+      115,  115,  118,  115,  115,  115,  115,  115,  115,  115,
+      115,  115,  115,  115,  115,  119,  119,  119,  119,  119,
+      119,  119,  119,  119,  119,  115,  115,  115,  115,  115,
+      120,  115,  115,  115,  115,  115,  115,  115,  115,  115,
+      115,  115,  119,  119,  119,  119,  119,  119,  119,  119,
+      119,  119,  119,  119,  115,  120,  115,  115,  115,  115,
+      119,  119,  119,  119,  119,  119,  119,  119,  119,  119,
+      119,  119,  119,  119,  119,  119,  119,  119,  119,  119,
+      119,  119,  119,  119,  119,  119,  119,  119,  119,  119,
 
-      114,  114,  114,  114,  114,  114,  114,  114,  114,    0,
-      110,  110,  110,  110,  110,  110
+      119,  119,  119,  119,  119,  119,  119,  119,  119,  119,
+      119,  119,  119,  119,    0,  115,  115,  115,  115,  115
     } ;
 
-static const flex_int16_t yy_nxt[186] =
+static const flex_int16_t yy_nxt[177] =
     {   0,
-        6,    7,    8,    9,   10,   11,   12,   13,   14,   15,
-       16,   17,   18,   19,   20,   21,   22,   23,   24,    6,
-       24,   25,   26,   24,   24,   27,   28,   24,   29,   24,
-       30,   24,   31,   32,   24,   24,   24,   24,   33,   34,
-       36,   36,   41,   52,   42,   63,   37,   37,   53,   64,
-       50,   41,   54,   42,   67,  109,  110,   68,   63,   43,
-      110,  108,  110,  107,  106,  105,  104,  103,   43,   35,
-       35,   35,   35,   35,   40,   40,   40,   40,   40,   44,
-      102,  101,   44,   44,   61,  100,   61,   99,   61,   62,
-       62,   62,   62,   62,   98,   97,   96,   95,   94,   93,
+        8,    9,   10,   11,   12,   13,   14,   15,   16,   17,
+       18,   19,   20,   21,   22,   23,   24,   25,   26,    8,
+       26,   27,   28,   26,   26,   29,   30,   26,   31,   32,
+       33,   26,   34,   35,   26,   26,   26,   26,   36,   37,
+       39,   39,   42,   42,   43,   43,   40,   40,   55,   67,
+       53,   72,  114,   56,   73,  113,  112,   57,  111,   44,
+       44,  110,  109,  108,  107,  106,  105,  104,  103,  102,
+      101,  100,   99,   68,   98,   97,   96,   95,   94,   69,
+       38,   38,   38,   38,   41,   41,   41,   41,   47,   47,
+       93,   47,   66,   92,   66,   66,   91,   90,   89,   88,
 
-       92,   91,   90,   89,   88,   87,   86,   85,   84,   83,
-       82,   81,   80,   79,   78,   77,   76,   75,   74,   73,
-       72,   71,   70,   69,   66,   46,   65,  110,   38,   60,
-       59,   58,   57,   56,   55,   51,   49,   48,   47,   46,
-       45,   39,   38,  110,    5,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110
+       87,   86,   85,   84,   83,   82,   81,   80,   79,   78,
+       77,   76,   75,   74,   71,   49,   70,   45,   65,   64,
+       63,   62,   61,   60,   59,   58,   54,   52,   51,   50,
+       49,   48,   46,   45,  115,    7,  115,  115,  115,  115,
+      115,  115,  115,  115,  115,  115,  115,  115,  115,  115,
+      115,  115,  115,  115,  115,  115,  115,  115,  115,  115,
+      115,  115,  115,  115,  115,  115,  115,  115,  115,  115,
+      115,  115,  115,  115,  115,  115
     } ;
 
-static const flex_int16_t yy_chk[186] =
+static const flex_int16_t yy_chk[177] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        3,    4,   10,   26,   10,   37,    3,    4,   26,   37,
-      114,   40,   26,   40,   52,  107,   62,   52,   63,   10,
-       62,  104,   63,  103,  100,   99,   98,   97,   40,  111,
-      111,  111,  111,  111,  112,  112,  112,  112,  112,  113,
-       96,   95,  113,  113,  115,   94,  115,   92,  115,  116,
-      116,  116,  116,  116,   91,   90,   89,   88,   86,   85,
+        3,    4,    5,    6,    5,    6,    3,    4,   28,   44,
+      119,   55,  112,   28,   55,  109,  108,   28,  105,    5,
+        6,  104,  103,  102,  101,  100,   99,   97,   96,   95,
+       94,   93,   91,   44,   90,   89,   88,   87,   85,   44,
+      116,  116,  116,  116,  117,  117,  117,  117,  118,  118,
+       84,  118,  120,   83,  120,  120,   82,   81,   80,   79,
 
-       84,   83,   82,   80,   79,   78,   77,   76,   75,   74,
-       73,   72,   70,   69,   68,   67,   60,   59,   58,   57,
-       56,   55,   54,   53,   51,   46,   44,   43,   38,   32,
-       31,   30,   29,   28,   27,   25,   23,   22,   21,   19,
-       18,    9,    7,    5,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110,  110,  110,  110,  110,  110,
-      110,  110,  110,  110,  110
+       78,   77,   75,   74,   73,   72,   64,   63,   62,   60,
+       59,   58,   57,   56,   54,   49,   47,   45,   40,   35,
+       34,   33,   32,   31,   30,   29,   27,   25,   24,   23,
+       21,   20,   11,    9,    7,  115,  115,  115,  115,  115,
+      115,  115,  115,  115,  115,  115,  115,  115,  115,  115,
+      115,  115,  115,  115,  115,  115,  115,  115,  115,  115,
+      115,  115,  115,  115,  115,  115,  115,  115,  115,  115,
+      115,  115,  115,  115,  115,  115
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -517,18 +513,29 @@ int yy_flex_debug = 0;
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
 #line 1 "analisador_sintatico/goianinha.l"
-
-#line 5 "analisador_sintatico/goianinha.l"
+#line 2 "analisador_sintatico/goianinha.l"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "goianinha.tab.h"
+
+// Variável yylineno é gerenciada pelo Flex
 extern int yylineno;
-#line 528 "analisador_sintatico/lex.yy.c"
-#line 529 "analisador_sintatico/lex.yy.c"
+// Variável para armazenar a linha onde um erro começou
+int start_line = 0;
+// Buffer para construir a string
+char string_buf[1024];
+
+#line 530 "analisador_sintatico/lex.yy.c"
+/* Declaração de estados exclusivos. 
+  O analisador só pode estar em um estado por vez.
+*/
+
+#line 535 "analisador_sintatico/lex.yy.c"
 
 #define INITIAL 0
 #define COMMENT 1
+#define STRING 2
 
 #ifndef YY_NO_UNISTD_H
 /* Special case for "unistd.h", since it is non-ANSI. We include it way
@@ -743,10 +750,10 @@ YY_DECL
 		}
 
 	{
-#line 13 "analisador_sintatico/goianinha.l"
+#line 22 "analisador_sintatico/goianinha.l"
 
 
-#line 750 "analisador_sintatico/lex.yy.c"
+#line 757 "analisador_sintatico/lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -773,13 +780,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 111 )
+				if ( yy_current_state >= 116 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 145 );
+		while ( yy_base[yy_current_state] != 136 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -805,243 +812,287 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 15 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return PROGRAMA; }
+#line 24 "analisador_sintatico/goianinha.l"
+{ return PROGRAMA; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 16 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return TK_INT; }
+#line 25 "analisador_sintatico/goianinha.l"
+{ return TK_INT; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 17 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return TK_CAR; }
+#line 26 "analisador_sintatico/goianinha.l"
+{ return TK_CAR; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 18 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return RETORNE; }
+#line 27 "analisador_sintatico/goianinha.l"
+{ return RETORNE; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 19 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return LEIA; }
+#line 28 "analisador_sintatico/goianinha.l"
+{ return LEIA; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 20 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return ESCREVA; }
+#line 29 "analisador_sintatico/goianinha.l"
+{ return ESCREVA; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 21 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return NOVALINHA; }
+#line 30 "analisador_sintatico/goianinha.l"
+{ return NOVALINHA; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 22 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return SE; }
+#line 31 "analisador_sintatico/goianinha.l"
+{ return SE; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 23 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return ENTAO; }
+#line 32 "analisador_sintatico/goianinha.l"
+{ return ENTAO; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 24 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return SENAO; }
+#line 33 "analisador_sintatico/goianinha.l"
+{ return SENAO; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 25 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return ENQUANTO; }
+#line 34 "analisador_sintatico/goianinha.l"
+{ return ENQUANTO; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 26 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return EXECUTE; }
+#line 35 "analisador_sintatico/goianinha.l"
+{ return EXECUTE; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 28 "analisador_sintatico/goianinha.l"
-{ }
+#line 36 "analisador_sintatico/goianinha.l"
+{ return OU; }
 	YY_BREAK
 case 14:
-/* rule 14 can match eol */
 YY_RULE_SETUP
-#line 29 "analisador_sintatico/goianinha.l"
-{ yylineno++; }
+#line 37 "analisador_sintatico/goianinha.l"
+{ return E; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 31 "analisador_sintatico/goianinha.l"
-{ BEGIN(COMMENT); }
+#line 40 "analisador_sintatico/goianinha.l"
+{ yylval.texto = strdup(yytext); return ID; }
 	YY_BREAK
-
 case 16:
 YY_RULE_SETUP
-#line 33 "analisador_sintatico/goianinha.l"
-;
+#line 41 "analisador_sintatico/goianinha.l"
+{ yylval.texto = strdup(yytext); return INTCONST; }
 	YY_BREAK
 case 17:
 /* rule 17 can match eol */
 YY_RULE_SETUP
-#line 34 "analisador_sintatico/goianinha.l"
-;
+#line 42 "analisador_sintatico/goianinha.l"
+{ yylval.texto = strdup(yytext); return CARCONST; }
 	YY_BREAK
 case 18:
-/* rule 18 can match eol */
 YY_RULE_SETUP
-#line 35 "analisador_sintatico/goianinha.l"
-{ yylineno++; }
+#line 44 "analisador_sintatico/goianinha.l"
+{ return IGUAL; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 36 "analisador_sintatico/goianinha.l"
-{ BEGIN(INITIAL); }
+#line 45 "analisador_sintatico/goianinha.l"
+{ return DIFERENTE; }
 	YY_BREAK
-case YY_STATE_EOF(COMMENT):
-#line 37 "analisador_sintatico/goianinha.l"
-{ printf("ERRO: COMENTARIO NAO TERMINA %d\n", yylineno); exit(1); }
-	YY_BREAK
-
 case 20:
 YY_RULE_SETUP
-#line 40 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return STRINGCONST; }
+#line 46 "analisador_sintatico/goianinha.l"
+{ return MENORIGUAL; }
 	YY_BREAK
 case 21:
-/* rule 21 can match eol */
 YY_RULE_SETUP
-#line 41 "analisador_sintatico/goianinha.l"
-{ printf("ERRO: STRING NAO TERMINADA na linha %d\n", yylineno); exit(1); }
+#line 47 "analisador_sintatico/goianinha.l"
+{ return MAIORIGUAL; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 42 "analisador_sintatico/goianinha.l"
-{ printf("ERRO: STRING NAO TERMINADA na linha %d\n", yylineno); exit(1); }
+#line 48 "analisador_sintatico/goianinha.l"
+{ return ATRIBUICAO; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 44 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return INTCONST; }
+#line 49 "analisador_sintatico/goianinha.l"
+{ return MENOR; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 46 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return CARCONST; }
+#line 50 "analisador_sintatico/goianinha.l"
+{ return MAIOR; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 48 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return ID; }
+#line 51 "analisador_sintatico/goianinha.l"
+{ return PONTOVIRGULA; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 50 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return IGUAL; }
+#line 52 "analisador_sintatico/goianinha.l"
+{ return VIRGULA; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 51 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return DIFERENTE; }
+#line 53 "analisador_sintatico/goianinha.l"
+{ return ABREPAR; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 52 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return MENORIGUAL; }
+#line 54 "analisador_sintatico/goianinha.l"
+{ return FECHAPAR; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 53 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return MAIORIGUAL; }
+#line 55 "analisador_sintatico/goianinha.l"
+{ return ABRECHAVE; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 55 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return PONTOVIRGULA; }
+#line 56 "analisador_sintatico/goianinha.l"
+{ return FECHACHAVE; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 56 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return VIRGULA; }
+#line 57 "analisador_sintatico/goianinha.l"
+{ return MAIS; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 57 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return ABREPAR; }
+#line 58 "analisador_sintatico/goianinha.l"
+{ return MENOS; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 58 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return FECHAPAR; }
+#line 59 "analisador_sintatico/goianinha.l"
+{ return MULT; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 59 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return ABRECHAVE; }
+#line 60 "analisador_sintatico/goianinha.l"
+{ return DIV; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 60 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return FECHACHAVE; }
+#line 61 "analisador_sintatico/goianinha.l"
+{ return '!'; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 61 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return ATRIBUICAO; }
+#line 63 "analisador_sintatico/goianinha.l"
+{ /* Ignora espaços, tabs e carriage return */ }
 	YY_BREAK
 case 37:
+/* rule 37 can match eol */
 YY_RULE_SETUP
-#line 62 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return MAIS; }
+#line 64 "analisador_sintatico/goianinha.l"
+{ yylineno++; }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 63 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return MENOS; }
+#line 67 "analisador_sintatico/goianinha.l"
+{ BEGIN(COMMENT); start_line = yylineno; }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 64 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return MULT; }
+#line 69 "analisador_sintatico/goianinha.l"
+{ BEGIN(INITIAL); }
 	YY_BREAK
 case 40:
+/* rule 40 can match eol */
 YY_RULE_SETUP
-#line 65 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return DIV; }
+#line 70 "analisador_sintatico/goianinha.l"
+{ yylineno++; }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 66 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return MENOR; }
+#line 71 "analisador_sintatico/goianinha.l"
+{ /* Ignora outros caracteres */ }
+	YY_BREAK
+case YY_STATE_EOF(COMMENT):
+#line 72 "analisador_sintatico/goianinha.l"
+{ 
+                        printf("ERRO: COMENTARIO NAO TERMINA (iniciado na linha %d)\n", start_line); 
+                        exit(1); 
+                    }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 67 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return MAIOR; }
+#line 78 "analisador_sintatico/goianinha.l"
+{
+    BEGIN(STRING);
+    start_line = yylineno;
+    string_buf[0] = '\0'; // Limpa o buffer da string
+}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 68 "analisador_sintatico/goianinha.l"
-{ yylval.texto = strdup(yytext); return '!'; }
+#line 84 "analisador_sintatico/goianinha.l"
+{ strcat(string_buf, yytext); }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 70 "analisador_sintatico/goianinha.l"
-{
-    printf("ERRO: CARACTERE INVALIDO '%s' na linha %d\n", yytext, yylineno);
-    exit(1);
-}
+#line 85 "analisador_sintatico/goianinha.l"
+{ strcat(string_buf, "\n"); }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 75 "analisador_sintatico/goianinha.l"
+#line 86 "analisador_sintatico/goianinha.l"
+{ strcat(string_buf, "\t"); }
+	YY_BREAK
+case 46:
+YY_RULE_SETUP
+#line 87 "analisador_sintatico/goianinha.l"
+{ strcat(string_buf, "\""); }
+	YY_BREAK
+case 47:
+YY_RULE_SETUP
+#line 89 "analisador_sintatico/goianinha.l"
+{
+    BEGIN(INITIAL);
+    yylval.texto = strdup(string_buf);
+    return STRINGCONST;
+}
+	YY_BREAK
+case 48:
+/* rule 48 can match eol */
+YY_RULE_SETUP
+#line 95 "analisador_sintatico/goianinha.l"
+{
+    printf("ERRO: CADEIA DE CARACTERES OCUPA MAIS DE UMA LINHA (iniciada na linha %d)\n", start_line);
+    exit(1);
+}
+	YY_BREAK
+case YY_STATE_EOF(STRING):
+#line 99 "analisador_sintatico/goianinha.l"
+{
+    printf("ERRO: STRING NAO TERMINADA (iniciada na linha %d)\n", start_line);
+    exit(1);
+}
+	YY_BREAK
+case 49:
+YY_RULE_SETUP
+#line 105 "analisador_sintatico/goianinha.l"
+{ 
+                        printf("ERRO: CARACTERE INVALIDO '%s' na linha %d\n", yytext, yylineno); 
+                        exit(1);
+                    }
+	YY_BREAK
+case 50:
+YY_RULE_SETUP
+#line 110 "analisador_sintatico/goianinha.l"
 ECHO;
 	YY_BREAK
-#line 1045 "analisador_sintatico/lex.yy.c"
+#line 1096 "analisador_sintatico/lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1338,7 +1389,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 111 )
+			if ( yy_current_state >= 116 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1366,11 +1417,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 111 )
+		if ( yy_current_state >= 116 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 110);
+	yy_is_jam = (yy_current_state == 115);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -2046,6 +2097,10 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 75 "analisador_sintatico/goianinha.l"
+#line 110 "analisador_sintatico/goianinha.l"
 
+
+int yywrap(void) {
+    return 1;
+}
 
