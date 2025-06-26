@@ -44,12 +44,6 @@
 #if YYDEBUG
 extern int yydebug;
 #endif
-/* "%code requires" blocks.  */
-#line 1 "analisador_sintatico/goianinha.y"
-
-    #include "../includes/ast.h"
-
-#line 53 "analisador_sintatico/goianinha.tab.h"
 
 /* Token kinds.  */
 #ifndef YYTOKENTYPE
@@ -73,9 +67,9 @@ extern int yydebug;
     ENQUANTO = 268,                /* ENQUANTO  */
     EXECUTE = 269,                 /* EXECUTE  */
     ID = 270,                      /* ID  */
-    INTCONST = 271,                /* INTCONST  */
+    STRINGCONST = 271,             /* STRINGCONST  */
     CARCONST = 272,                /* CARCONST  */
-    STRINGCONST = 273,             /* STRINGCONST  */
+    INTCONST = 273,                /* INTCONST  */
     MAIS = 274,                    /* MAIS  */
     MENOS = 275,                   /* MENOS  */
     MULT = 276,                    /* MULT  */
@@ -107,9 +101,9 @@ union YYSTYPE
 
     int valor_int;
     char* texto;
-    ASTNode* no;
+    struct ASTNode* no; // Usa 'struct ASTNode*' explicitamente
 
-#line 113 "analisador_sintatico/goianinha.tab.h"
+#line 107 "analisador_sintatico/goianinha.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

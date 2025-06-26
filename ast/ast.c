@@ -4,14 +4,24 @@
 #include <string.h>
 #include "../includes/ast.h"
 
-ASTNode* criar_no(NodeKind tipo, int linha, char* valor_str, int valor_int, int n_filhos, ...) {
+// NOVO: Adicionado tipo_dado ao criar_no
+ASTNode* criar_no(NodeKind tipo, int linha, char* valor_str, int valor_int, TipoDado tipo_dado, int n_filhos, ...) {
     ASTNode* no = malloc(sizeof(ASTNode));
+    if (!no) {
+        perror("Erro ao alocar ASTNode");
+        exit(1);
+    }
     no->kind = tipo;
     no->linha = linha;
     no->valor_str = valor_str ? strdup(valor_str) : NULL;
     no->valor_int = valor_int;
+    no->tipo_dado = tipo_dado; // NOVO: Armazena o tipo de dado
     no->n_filhos = n_filhos;
     no->filhos = n_filhos ? malloc(sizeof(ASTNode*) * n_filhos) : NULL;
+    if (n_filhos > 0 && !no->filhos) {
+        perror("Erro ao alocar filhos de ASTNode");
+        exit(1);
+    }
 
     va_list args;
     va_start(args, n_filhos);
@@ -28,13 +38,13 @@ void imprimir_ast(ASTNode* raiz, int nivel) {
     printf("- [%d] ", raiz->linha);
     switch (raiz->kind) {
         case NODE_PROGRAMA: printf("PROGRAMA\n"); break;
-        case NODE_FUNCAO:   printf("FUNCAO (%s)\n", raiz->valor_str ? raiz->valor_str : ""); break;
-        case NODE_DECLVAR:  printf("DECLVAR (%s)\n", raiz->valor_str ? raiz->valor_str : ""); break;
+        case NODE_FUNCAO:   printf("FUNCAO (%s, tipo_retorno=%d)\n", raiz->valor_str ? raiz->valor_str : "", raiz->tipo_dado); break;
+        case NODE_DECLVAR:  printf("DECLVAR (%s, tipo=%d)\n", raiz->valor_str ? raiz->valor_str : "", raiz->tipo_dado); break;
         case NODE_BLOCO:    printf("BLOCO\n"); break;
         case NODE_CMD:      printf("COMANDO (%s)\n", raiz->valor_str ? raiz->valor_str : ""); break;
-        case NODE_EXPR:     printf("EXPR (%s)\n", raiz->valor_str ? raiz->valor_str : ""); break;
-        case NODE_ID:       printf("ID (%s)\n", raiz->valor_str ? raiz->valor_str : ""); break;
-        case NODE_CONST:    printf("CONST (%d)\n", raiz->valor_int); break;
+        case NODE_EXPR:     printf("EXPR (%s, tipo=%d)\n", raiz->valor_str ? raiz->valor_str : "", raiz->tipo_dado); break;
+        case NODE_ID:       printf("ID (%s, tipo=%d)\n", raiz->valor_str ? raiz->valor_str : "", raiz->tipo_dado); break;
+        case NODE_CONST:    printf("CONST (%d, tipo=%d)\n", raiz->valor_int, raiz->tipo_dado); break;
         case NODE_LISTA:    printf("LISTA\n"); break;
         default:            printf("NODE desconhecido (tipo=%d)\n", raiz->kind);
     }
@@ -49,7 +59,7 @@ void liberar_ast(ASTNode* raiz) {
     for (int i = 0; i < raiz->n_filhos; i++) {
         liberar_ast(raiz->filhos[i]);
     }
-    free(raiz->filhos);
-    free(raiz->valor_str);
+    if (raiz->filhos) free(raiz->filhos);
+    if (raiz->valor_str) free(raiz->valor_str);
     free(raiz);
 }

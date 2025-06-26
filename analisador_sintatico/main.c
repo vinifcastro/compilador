@@ -9,8 +9,8 @@ extern int yyparse();
 extern FILE* yyin;
 extern int yylineno;
 
-
-extern ASTNode* ast_raiz;
+// NOVO: Removido 'extern' para definir ast_raiz neste arquivo
+ASTNode* ast_raiz; 
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
@@ -35,6 +35,7 @@ int main(int argc, char* argv[]) {
         imprimir_ast(ast_raiz, 0);
 
         printf("\n🔎 Iniciando análise semântica:\n");
+        // A função analisar_semantica não retorna TipoDado, apenas percorre.
         analisar_semantica(ast_raiz);
 
         printf("\n⚙️  Gerando código MIPS...\n");
