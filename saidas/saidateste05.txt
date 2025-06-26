@@ -1,0 +1,70 @@
+✅ Análise sintática concluída com sucesso.
+
+📍 Árvore Sintática Abstrata (AST):
+- [1] PROGRAMA
+  - [1] FUNCAO (fatorial)
+    - [1] FUNCAO ()
+      - [1] LISTA
+        - [1] ID (n)
+      - [1] BLOCO
+        - [1] LISTA
+          - [1] COMANDO (se_senao)
+            - [1] EXPR (==)
+              - [1] ID (n)
+              - [1] CONST (0)
+            - [1] COMANDO (retorne)
+              - [1] CONST (1)
+            - [1] COMANDO (retorne)
+              - [1] EXPR (*)
+                - [1] ID (n)
+                - [1] EXPR (call)
+                  - [1] ID (fatorial)
+                  - [1] LISTA
+                    - [1] EXPR (-)
+                      - [1] ID (n)
+                      - [1] CONST (1)
+  - [1] BLOCO
+    - [1] BLOCO
+      - [1] LISTA
+        - [1] DECLVAR ()
+          - [1] ID (n)
+      - [1] LISTA
+        - [1] LISTA
+          - [1] LISTA
+            - [1] LISTA
+              - [1] LISTA
+                - [1] LISTA
+                  - [1] LISTA
+                    - [1] COMANDO (expr;)
+                      - [1] EXPR (=)
+                        - [1] ID (n)
+                        - [1] EXPR (-)
+                          - [1] CONST (1)
+                          - [1] CONST (0)
+                  - [1] COMANDO (enquanto)
+                    - [1] EXPR (<)
+                      - [1] ID (n)
+                      - [1] CONST (0)
+                    - [1] BLOCO
+                      - [1] LISTA
+                        - [1] LISTA
+                          - [1] LISTA
+                            - [1] COMANDO (escreva_str)
+                          - [1] COMANDO (novalinha)
+                        - [1] COMANDO (leia)
+                          - [1] ID (n)
+                - [1] COMANDO (escreva_str)
+              - [1] COMANDO (escreva)
+                - [1] ID (n)
+            - [1] COMANDO (escreva_str)
+          - [1] COMANDO (escreva)
+            - [1] EXPR (call)
+              - [1] ID (fatorial)
+              - [1] LISTA
+                - [1] ID (n)
+        - [1] COMANDO (novalinha)
+
+🔎 Iniciando análise semântica:
+DEBUG: Chamando inserir_funcao_em_escopo('fatorial')
+DEBUG: pilha_global.pilha[0] = 0x56d5e2cc77f0
+ERRO SEMÂNTICO: função 'fatorial' espera 1 argumento(s), mas 0 fornecido(s) (linha 1)

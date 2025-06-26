@@ -1,0 +1,49 @@
+✅ Análise sintática concluída com sucesso.
+
+📍 Árvore Sintática Abstrata (AST):
+- [1] PROGRAMA
+  - [1] DECLVAR (x)
+    - [1] LISTA
+      - [1] ID (y)
+      - [1] LISTA
+        - [1] ID (z)
+        - [1] LISTA
+          - [1] ID (v)
+  - [1] BLOCO
+    - [1] BLOCO
+      - [1] LISTA
+        - [1] LISTA
+          - [1] LISTA
+            - [1] LISTA
+              - [1] LISTA
+                - [1] LISTA
+                  - [1] LISTA
+                    - [1] LISTA
+                      - [1] COMANDO (expr;)
+                        - [1] EXPR (=)
+                          - [1] ID (z)
+                          - [1] EXPR (=)
+                            - [1] ID (y)
+                            - [1] EXPR (=)
+                              - [1] ID (x)
+                              - [1] CONST (50)
+                    - [1] COMANDO (escreva)
+                      - [1] ID (x)
+                  - [1] COMANDO (escreva_str)
+                - [1] COMANDO (escreva)
+                  - [1] ID (y)
+              - [1] COMANDO (escreva_str)
+            - [1] COMANDO (escreva)
+              - [1] ID (z)
+          - [1] COMANDO (novalinha)
+        - [1] COMANDO (escreva)
+          - [1] EXPR (-)
+            - [1] EXPR (*)
+              - [1] ID (x)
+              - [1] CONST (2)
+            - [1] EXPR (/)
+              - [1] ID (y)
+              - [1] CONST (4)
+
+🔎 Iniciando análise semântica:
+ERRO SEMÂNTICO: identificador 'y' não declarado (linha 1)
