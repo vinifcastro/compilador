@@ -1,0 +1,39 @@
+✅ Análise sintática concluída com sucesso.
+
+📍 Árvore Sintática Abstrata (AST):
+- [1] PROGRAMA
+  - [1] BLOCO
+    - [1] BLOCO
+      - [1] LISTA
+        - [1] DECLVAR (, tipo=0)
+          - [1] ID (x, tipo=0)
+      - [1] LISTA
+        - [1] LISTA
+          - [1] COMANDO (expr;)
+            - [1] EXPR (=, tipo=3)
+              - [1] ID (x, tipo=3)
+              - [1] CONST (0, tipo=0)
+        - [1] COMANDO (enquanto)
+          - [1] EXPR (<, tipo=3)
+            - [1] ID (x, tipo=3)
+            - [1] CONST (3, tipo=0)
+          - [1] BLOCO
+            - [1] LISTA
+              - [1] LISTA
+                - [1] COMANDO (se_senao)
+                  - [1] EXPR (==, tipo=3)
+                    - [1] ID (x, tipo=3)
+                    - [1] CONST (1, tipo=0)
+                  - [1] COMANDO (escreva_str)
+                  - [1] COMANDO (escreva_str)
+              - [1] COMANDO (expr;)
+                - [1] EXPR (=, tipo=3)
+                  - [1] ID (x, tipo=3)
+                  - [1] EXPR (+, tipo=3)
+                    - [1] ID (x, tipo=3)
+                    - [1] CONST (1, tipo=0)
+
+🔎 Iniciando análise semântica:
+
+⚙️  Gerando código MIPS...
+✅ Código MIPS gerado com sucesso: MIPS/saidateste04_comandos_condicionais_e_repeticao.asm

@@ -1,2 +1,0 @@
-ERRO: syntax error linha 6
-❌ Falha na análise sintática.

@@ -1,0 +1,13 @@
+✅ Análise sintática concluída com sucesso.
+
+📍 Árvore Sintática Abstrata (AST):
+- [1] PROGRAMA
+  - [1] BLOCO
+    - [1] BLOCO
+      - [1] LISTA
+        - [1] COMANDO (escreva_str)
+
+🔎 Iniciando análise semântica:
+
+⚙️  Gerando código MIPS...
+✅ Código MIPS gerado com sucesso: MIPS/saidateste07_string_valida.asm
