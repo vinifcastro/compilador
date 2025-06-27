@@ -7,7 +7,7 @@ int fib(int n) {
 
 programa {
     int valor;
-    valor = 8; // Calcula o 8º número de Fibonacci
+    valor = 8; 
     escreva "O fibonacci de ";
     escreva valor;
     escreva " e: ";

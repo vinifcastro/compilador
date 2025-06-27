@@ -1,2 +1,28 @@
-ERRO: syntax error linha 5
-❌ Falha na análise sintática.
+✅ Análise sintática concluída com sucesso.
+
+📍 Árvore Sintática Abstrata (AST):
+- [1] PROGRAMA
+  - [1] BLOCO
+    - [1] BLOCO
+      - [1] LISTA
+        - [1] DECLVAR (, tipo=0)
+          - [1] ID (x, tipo=0)
+        - [1] LISTA
+          - [1] DECLVAR (, tipo=1)
+            - [1] ID (y, tipo=1)
+      - [1] LISTA
+        - [1] LISTA
+          - [1] LISTA
+            - [1] COMANDO (expr;)
+              - [1] EXPR (=, tipo=3)
+                - [1] ID (y, tipo=3)
+                - [1] CONST (39, tipo=1)
+          - [1] COMANDO (expr;)
+            - [1] EXPR (=, tipo=3)
+              - [1] ID (x, tipo=3)
+              - [1] ID (y, tipo=3)
+        - [1] COMANDO (escreva)
+          - [1] ID (x, tipo=3)
+
+🔎 Iniciando análise semântica:
+ERRO SEMÂNTICO: Atribuição de tipos incompativeis: 'x' (tipo 0) = Expressão (tipo 1) (linha 1)

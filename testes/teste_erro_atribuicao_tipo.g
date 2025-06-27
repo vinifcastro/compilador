@@ -2,6 +2,6 @@ programa {
     int x;
     car y;
     y = 'a';
-    x = y; // Erro de tipo aqui!
+    x = y;
     escreva x;
 }

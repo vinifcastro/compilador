@@ -1,2 +1,60 @@
-ERRO: syntax error linha 10
-❌ Falha na análise sintática.
+✅ Análise sintática concluída com sucesso.
+
+📍 Árvore Sintática Abstrata (AST):
+- [1] PROGRAMA
+  - [1] FUNCAO (fib, tipo_retorno=0)
+    - [1] FUNCAO (, tipo_retorno=3)
+      - [1] LISTA
+        - [1] ID (n, tipo=0)
+      - [1] BLOCO
+        - [1] LISTA
+          - [1] COMANDO (se_senao)
+            - [1] EXPR (<=, tipo=3)
+              - [1] ID (n, tipo=3)
+              - [1] CONST (1, tipo=0)
+            - [1] COMANDO (retorne)
+              - [1] ID (n, tipo=3)
+            - [1] COMANDO (retorne)
+              - [1] EXPR (+, tipo=3)
+                - [1] EXPR (call, tipo=3)
+                  - [1] ID (fib, tipo=3)
+                  - [1] LISTA
+                    - [1] EXPR (-, tipo=3)
+                      - [1] ID (n, tipo=3)
+                      - [1] CONST (1, tipo=0)
+                - [1] EXPR (call, tipo=3)
+                  - [1] ID (fib, tipo=3)
+                  - [1] LISTA
+                    - [1] EXPR (-, tipo=3)
+                      - [1] ID (n, tipo=3)
+                      - [1] CONST (2, tipo=0)
+  - [1] BLOCO
+    - [1] BLOCO
+      - [1] LISTA
+        - [1] DECLVAR (, tipo=0)
+          - [1] ID (valor, tipo=0)
+      - [1] LISTA
+        - [1] LISTA
+          - [1] LISTA
+            - [1] LISTA
+              - [1] LISTA
+                - [1] LISTA
+                  - [1] COMANDO (expr;)
+                    - [1] EXPR (=, tipo=3)
+                      - [1] ID (valor, tipo=3)
+                      - [1] CONST (8, tipo=0)
+                - [1] COMANDO (escreva_str)
+              - [1] COMANDO (escreva)
+                - [1] ID (valor, tipo=3)
+            - [1] COMANDO (escreva_str)
+          - [1] COMANDO (escreva)
+            - [1] EXPR (call, tipo=3)
+              - [1] ID (fib, tipo=3)
+              - [1] LISTA
+                - [1] ID (valor, tipo=3)
+        - [1] COMANDO (novalinha)
+
+🔎 Iniciando análise semântica:
+
+⚙️  Gerando código MIPS...
+✅ Código MIPS gerado com sucesso: MIPS/saidateste_recursao_fibonacci.asm

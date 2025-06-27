@@ -1,2 +1,49 @@
-ERRO: syntax error linha 10
-❌ Falha na análise sintática.
+✅ Análise sintática concluída com sucesso.
+
+📍 Árvore Sintática Abstrata (AST):
+- [1] PROGRAMA
+  - [1] FUNCAO (soma, tipo_retorno=0)
+    - [1] FUNCAO (, tipo_retorno=3)
+      - [1] LISTA
+        - [1] ID (a, tipo=0)
+        - [1] LISTA
+          - [1] ID (b, tipo=0)
+      - [1] BLOCO
+        - [1] LISTA
+          - [1] COMANDO (retorne)
+            - [1] EXPR (+, tipo=3)
+              - [1] ID (a, tipo=3)
+              - [1] ID (b, tipo=3)
+  - [1] BLOCO
+    - [1] BLOCO
+      - [1] LISTA
+        - [1] DECLVAR (, tipo=0)
+          - [1] ID (resultado, tipo=0)
+        - [1] LISTA
+          - [1] DECLVAR (, tipo=1)
+            - [1] ID (c, tipo=1)
+      - [1] LISTA
+        - [1] LISTA
+          - [1] LISTA
+            - [1] LISTA
+              - [1] COMANDO (expr;)
+                - [1] EXPR (=, tipo=3)
+                  - [1] ID (c, tipo=3)
+                  - [1] CONST (39, tipo=1)
+            - [1] COMANDO (expr;)
+              - [1] EXPR (=, tipo=3)
+                - [1] ID (resultado, tipo=3)
+                - [1] EXPR (call, tipo=3)
+                  - [1] ID (soma, tipo=3)
+                  - [1] LISTA
+                    - [1] LISTA
+                      - [1] CONST (5, tipo=0)
+                    - [1] ID (c, tipo=3)
+          - [1] COMANDO (escreva)
+            - [1] ID (resultado, tipo=3)
+        - [1] COMANDO (novalinha)
+
+🔎 Iniciando análise semântica:
+
+⚙️  Gerando código MIPS...
+✅ Código MIPS gerado com sucesso: MIPS/saidateste_erro_tipo_parametro.asm
