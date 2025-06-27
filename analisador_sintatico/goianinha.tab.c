@@ -72,19 +72,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// Inclui ast.h no prólogo principal
 #include "../includes/ast.h"
 
-// NOVO: Declaração forward para a struct ASTNode DENTRO do bloco %{ %}
-struct ASTNode; 
+struct ASTNode;
 
-// Declarações globais (extern) para variáveis e funções
-extern int yylex();          // Declaração para a função do Flex
-extern int yylineno;         // Declaração para a variável de linha do Flex
-void yyerror(const char *s); // Declaração para a função de erro do Bison
-extern ASTNode* ast_raiz;    // ASTNode deve ser reconhecido aqui
+extern int yylex();
+extern int yylineno;
+void yyerror(const char *s);
+extern ASTNode* ast_raiz;
 
-#line 88 "analisador_sintatico/goianinha.tab.c"
+#line 85 "analisador_sintatico/goianinha.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -566,13 +563,13 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
-       0,    40,    40,    47,    52,    57,    63,    69,    71,    75,
-      80,    86,    92,    94,    98,   103,   110,   116,   118,   126,
-     130,   136,   140,   144,   148,   153,   157,   161,   165,   169,
-     173,   177,   183,   185,   192,   194,   198,   200,   204,   206,
-     208,   212,   214,   216,   218,   220,   224,   226,   228,   232,
-     234,   236,   240,   242,   244,   248,   253,   258,   262,   266,
-     270,   276,   280
+       0,    37,    37,    44,    49,    54,    60,    66,    68,    72,
+      77,    83,    89,    91,    95,   100,   107,   113,   115,   123,
+     127,   133,   137,   141,   145,   150,   154,   158,   162,   166,
+     170,   174,   180,   182,   189,   191,   195,   197,   201,   203,
+     205,   209,   211,   213,   215,   217,   221,   223,   225,   229,
+     231,   233,   237,   239,   241,   245,   250,   255,   259,   263,
+     267,   273,   277
 };
 #endif
 
@@ -1331,453 +1328,453 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* Programa: DeclFuncVar DeclProg  */
-#line 41 "analisador_sintatico/goianinha.y"
+#line 38 "analisador_sintatico/goianinha.y"
     {
         ast_raiz = criar_no(NODE_PROGRAMA, (yylsp[-1]).first_line, NULL, 0, TIPO_VOID, 2, (yyvsp[-1].no), (yyvsp[0].no));
         (yyval.no) = ast_raiz;
     }
-#line 1340 "analisador_sintatico/goianinha.tab.c"
+#line 1337 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 3: /* DeclFuncVar: Tipo ID DeclVar PONTOVIRGULA DeclFuncVar  */
-#line 48 "analisador_sintatico/goianinha.y"
+#line 45 "analisador_sintatico/goianinha.y"
     {
         ASTNode* atual = criar_no(NODE_DECLVAR, (yylsp[-4]).first_line, (yyvsp[-3].texto), 0, (yyvsp[-4].no)->tipo_dado, 1, (yyvsp[-2].no));
         (yyval.no) = (yyvsp[0].no) ? criar_no(NODE_LISTA, (yylsp[-4]).first_line, NULL, 0, TIPO_UNKNOWN, 2, atual, (yyvsp[0].no)) : atual;
     }
-#line 1349 "analisador_sintatico/goianinha.tab.c"
+#line 1346 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 4: /* DeclFuncVar: Tipo ID DeclFunc DeclFuncVar  */
-#line 53 "analisador_sintatico/goianinha.y"
+#line 50 "analisador_sintatico/goianinha.y"
     {
         ASTNode* atual = criar_no(NODE_FUNCAO, (yylsp[-3]).first_line, (yyvsp[-2].texto), 0, (yyvsp[-3].no)->tipo_dado, 1, (yyvsp[-1].no));
         (yyval.no) = (yyvsp[0].no) ? criar_no(NODE_LISTA, (yylsp[-3]).first_line, NULL, 0, TIPO_UNKNOWN, 2, atual, (yyvsp[0].no)) : atual;
     }
-#line 1358 "analisador_sintatico/goianinha.tab.c"
+#line 1355 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 5: /* DeclFuncVar: %empty  */
-#line 58 "analisador_sintatico/goianinha.y"
+#line 55 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = NULL;
     }
-#line 1366 "analisador_sintatico/goianinha.tab.c"
+#line 1363 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 6: /* DeclProg: PROGRAMA Bloco  */
-#line 64 "analisador_sintatico/goianinha.y"
+#line 61 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_BLOCO, (yylsp[-1]).first_line, strdup("programa"), 0, TIPO_VOID, 1, (yyvsp[0].no));
     }
-#line 1374 "analisador_sintatico/goianinha.tab.c"
+#line 1371 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 7: /* Tipo: TK_INT  */
-#line 70 "analisador_sintatico/goianinha.y"
+#line 67 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_ID, (yylsp[0]).first_line, strdup("int"), 0, TIPO_INT, 0); }
-#line 1380 "analisador_sintatico/goianinha.tab.c"
+#line 1377 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 8: /* Tipo: TK_CAR  */
-#line 72 "analisador_sintatico/goianinha.y"
+#line 69 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_ID, (yylsp[0]).first_line, strdup("car"), 0, TIPO_CAR, 0); }
-#line 1386 "analisador_sintatico/goianinha.tab.c"
+#line 1383 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 9: /* DeclVar: VIRGULA ID DeclVar  */
-#line 76 "analisador_sintatico/goianinha.y"
+#line 73 "analisador_sintatico/goianinha.y"
     {
         ASTNode* idNode = criar_no(NODE_ID, (yylsp[-1]).first_line, (yyvsp[-1].texto), 0, TIPO_UNKNOWN, 0);
         (yyval.no) = criar_no(NODE_LISTA, (yylsp[-2]).first_line, NULL, 0, TIPO_UNKNOWN, 2, idNode, (yyvsp[0].no));
     }
-#line 1395 "analisador_sintatico/goianinha.tab.c"
+#line 1392 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 10: /* DeclVar: %empty  */
-#line 81 "analisador_sintatico/goianinha.y"
+#line 78 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = NULL;
     }
-#line 1403 "analisador_sintatico/goianinha.tab.c"
+#line 1400 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 11: /* DeclFunc: ABREPAR ListaParametros FECHAPAR Bloco  */
-#line 87 "analisador_sintatico/goianinha.y"
+#line 84 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_FUNCAO, (yylsp[-3]).first_line, NULL, 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no));
     }
-#line 1411 "analisador_sintatico/goianinha.tab.c"
+#line 1408 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 12: /* ListaParametros: %empty  */
-#line 93 "analisador_sintatico/goianinha.y"
+#line 90 "analisador_sintatico/goianinha.y"
     { (yyval.no) = NULL; }
-#line 1417 "analisador_sintatico/goianinha.tab.c"
+#line 1414 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 13: /* ListaParametros: ListaParametrosCont  */
-#line 95 "analisador_sintatico/goianinha.y"
+#line 92 "analisador_sintatico/goianinha.y"
     { (yyval.no) = (yyvsp[0].no); }
-#line 1423 "analisador_sintatico/goianinha.tab.c"
+#line 1420 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 14: /* ListaParametrosCont: Tipo ID  */
-#line 99 "analisador_sintatico/goianinha.y"
+#line 96 "analisador_sintatico/goianinha.y"
     {
         ASTNode* idNode = criar_no(NODE_ID, (yylsp[0]).first_line, (yyvsp[0].texto), 0, (yyvsp[-1].no)->tipo_dado, 0);
         (yyval.no) = criar_no(NODE_LISTA, (yylsp[-1]).first_line, strdup("param_list"), 0, TIPO_UNKNOWN, 1, idNode);
     }
-#line 1432 "analisador_sintatico/goianinha.tab.c"
+#line 1429 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 15: /* ListaParametrosCont: Tipo ID VIRGULA ListaParametrosCont  */
-#line 104 "analisador_sintatico/goianinha.y"
+#line 101 "analisador_sintatico/goianinha.y"
     {
         ASTNode* idNode = criar_no(NODE_ID, (yylsp[-2]).first_line, (yyvsp[-2].texto), 0, (yyvsp[-3].no)->tipo_dado, 0);
         (yyval.no) = criar_no(NODE_LISTA, (yylsp[-3]).first_line, strdup("param_list"), 0, TIPO_UNKNOWN, 2, idNode, (yyvsp[0].no));
     }
-#line 1441 "analisador_sintatico/goianinha.tab.c"
+#line 1438 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 16: /* Bloco: ABRECHAVE ListaDeclVar ListaComando FECHACHAVE  */
-#line 111 "analisador_sintatico/goianinha.y"
+#line 108 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_BLOCO, (yylsp[-3]).first_line, NULL, 0, TIPO_VOID, 2, (yyvsp[-2].no), (yyvsp[-1].no));
     }
-#line 1449 "analisador_sintatico/goianinha.tab.c"
+#line 1446 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 17: /* ListaDeclVar: %empty  */
-#line 117 "analisador_sintatico/goianinha.y"
+#line 114 "analisador_sintatico/goianinha.y"
     { (yyval.no) = NULL; }
-#line 1455 "analisador_sintatico/goianinha.tab.c"
+#line 1452 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 18: /* ListaDeclVar: Tipo ID DeclVar PONTOVIRGULA ListaDeclVar  */
-#line 119 "analisador_sintatico/goianinha.y"
+#line 116 "analisador_sintatico/goianinha.y"
     {
         ASTNode* idNode = criar_no(NODE_ID, (yylsp[-3]).first_line, (yyvsp[-3].texto), 0, (yyvsp[-4].no)->tipo_dado, 0);
         ASTNode* decl = criar_no(NODE_DECLVAR, (yylsp[-4]).first_line, NULL, 0, (yyvsp[-4].no)->tipo_dado, 2, idNode, (yyvsp[-2].no));
         (yyval.no) = criar_no(NODE_LISTA, (yylsp[-4]).first_line, NULL, 0, TIPO_UNKNOWN, 2, decl, (yyvsp[0].no));
     }
-#line 1465 "analisador_sintatico/goianinha.tab.c"
+#line 1462 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 19: /* ListaComando: Comando  */
-#line 127 "analisador_sintatico/goianinha.y"
+#line 124 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_LISTA, (yylsp[0]).first_line, NULL, 0, TIPO_UNKNOWN, 1, (yyvsp[0].no));
     }
-#line 1473 "analisador_sintatico/goianinha.tab.c"
+#line 1470 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 20: /* ListaComando: ListaComando Comando  */
-#line 131 "analisador_sintatico/goianinha.y"
+#line 128 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_LISTA, (yylsp[0]).first_line, NULL, 0, TIPO_UNKNOWN, 2, (yyvsp[-1].no), (yyvsp[0].no));
     }
-#line 1481 "analisador_sintatico/goianinha.tab.c"
+#line 1478 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 21: /* Comando: PONTOVIRGULA  */
-#line 137 "analisador_sintatico/goianinha.y"
+#line 134 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_CMD, (yylsp[0]).first_line, strdup(";"), 0, TIPO_VOID, 0);
     }
-#line 1489 "analisador_sintatico/goianinha.tab.c"
+#line 1486 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 22: /* Comando: Expr PONTOVIRGULA  */
-#line 141 "analisador_sintatico/goianinha.y"
+#line 138 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_CMD, (yylsp[-1]).first_line, strdup("expr;"), 0, TIPO_VOID, 1, (yyvsp[-1].no));
     }
-#line 1497 "analisador_sintatico/goianinha.tab.c"
+#line 1494 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 23: /* Comando: RETORNE Expr PONTOVIRGULA  */
-#line 145 "analisador_sintatico/goianinha.y"
+#line 142 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_CMD, (yylsp[-2]).first_line, strdup("retorne"), 0, TIPO_VOID, 1, (yyvsp[-1].no));
     }
-#line 1505 "analisador_sintatico/goianinha.tab.c"
+#line 1502 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 24: /* Comando: LEIA ID PONTOVIRGULA  */
-#line 149 "analisador_sintatico/goianinha.y"
+#line 146 "analisador_sintatico/goianinha.y"
     {
         ASTNode* idNode = criar_no(NODE_ID, (yylsp[-1]).first_line, (yyvsp[-1].texto), 0, TIPO_UNKNOWN, 0);
         (yyval.no) = criar_no(NODE_CMD, (yylsp[-2]).first_line, strdup("leia"), 0, TIPO_VOID, 1, idNode);
     }
-#line 1514 "analisador_sintatico/goianinha.tab.c"
+#line 1511 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 25: /* Comando: ESCREVA Expr PONTOVIRGULA  */
-#line 154 "analisador_sintatico/goianinha.y"
+#line 151 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_CMD, (yylsp[-2]).first_line, strdup("escreva"), 0, TIPO_VOID, 1, (yyvsp[-1].no));
     }
-#line 1522 "analisador_sintatico/goianinha.tab.c"
+#line 1519 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 26: /* Comando: ESCREVA STRINGCONST PONTOVIRGULA  */
-#line 158 "analisador_sintatico/goianinha.y"
+#line 155 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_CMD, (yylsp[-2]).first_line, strdup("escreva_str"), 0, TIPO_VOID, 0);
     }
-#line 1530 "analisador_sintatico/goianinha.tab.c"
+#line 1527 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 27: /* Comando: NOVALINHA PONTOVIRGULA  */
-#line 162 "analisador_sintatico/goianinha.y"
+#line 159 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_CMD, (yylsp[-1]).first_line, strdup("novalinha"), 0, TIPO_VOID, 0);
     }
-#line 1538 "analisador_sintatico/goianinha.tab.c"
+#line 1535 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 28: /* Comando: SE ABREPAR Expr FECHAPAR ENTAO Comando  */
-#line 166 "analisador_sintatico/goianinha.y"
+#line 163 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_CMD, (yylsp[-5]).first_line, strdup("se"), 0, TIPO_VOID, 2, (yyvsp[-3].no), (yyvsp[0].no));
     }
-#line 1546 "analisador_sintatico/goianinha.tab.c"
+#line 1543 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 29: /* Comando: SE ABREPAR Expr FECHAPAR ENTAO Comando SENAO Comando  */
-#line 170 "analisador_sintatico/goianinha.y"
+#line 167 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_CMD, (yylsp[-7]).first_line, strdup("se_senao"), 0, TIPO_VOID, 3, (yyvsp[-5].no), (yyvsp[-2].no), (yyvsp[0].no));
     }
-#line 1554 "analisador_sintatico/goianinha.tab.c"
+#line 1551 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 30: /* Comando: ENQUANTO ABREPAR Expr FECHAPAR EXECUTE Comando  */
-#line 174 "analisador_sintatico/goianinha.y"
+#line 171 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_CMD, (yylsp[-5]).first_line, strdup("enquanto"), 0, TIPO_VOID, 2, (yyvsp[-3].no), (yyvsp[0].no));
     }
-#line 1562 "analisador_sintatico/goianinha.tab.c"
+#line 1559 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 31: /* Comando: Bloco  */
-#line 178 "analisador_sintatico/goianinha.y"
+#line 175 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = (yyvsp[0].no);
     }
-#line 1570 "analisador_sintatico/goianinha.tab.c"
+#line 1567 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 32: /* Expr: OrExpr  */
-#line 184 "analisador_sintatico/goianinha.y"
+#line 181 "analisador_sintatico/goianinha.y"
     { (yyval.no) = (yyvsp[0].no); }
-#line 1576 "analisador_sintatico/goianinha.tab.c"
+#line 1573 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 33: /* Expr: ID ATRIBUICAO Expr  */
-#line 186 "analisador_sintatico/goianinha.y"
+#line 183 "analisador_sintatico/goianinha.y"
     {
         ASTNode* idNode = criar_no(NODE_ID, (yylsp[-2]).first_line, (yyvsp[-2].texto), 0, TIPO_UNKNOWN, 0);
         (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup("="), 0, TIPO_UNKNOWN, 2, idNode, (yyvsp[0].no));
     }
-#line 1585 "analisador_sintatico/goianinha.tab.c"
+#line 1582 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 34: /* OrExpr: OrExpr OU AndExpr  */
-#line 193 "analisador_sintatico/goianinha.y"
+#line 190 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup("ou"), 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no)); }
-#line 1591 "analisador_sintatico/goianinha.tab.c"
+#line 1588 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 35: /* OrExpr: AndExpr  */
-#line 195 "analisador_sintatico/goianinha.y"
+#line 192 "analisador_sintatico/goianinha.y"
     { (yyval.no) = (yyvsp[0].no); }
-#line 1597 "analisador_sintatico/goianinha.tab.c"
+#line 1594 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 36: /* AndExpr: AndExpr E EqExpr  */
-#line 199 "analisador_sintatico/goianinha.y"
+#line 196 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup("e"), 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no)); }
-#line 1603 "analisador_sintatico/goianinha.tab.c"
+#line 1600 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 37: /* AndExpr: EqExpr  */
-#line 201 "analisador_sintatico/goianinha.y"
+#line 198 "analisador_sintatico/goianinha.y"
     { (yyval.no) = (yyvsp[0].no); }
-#line 1609 "analisador_sintatico/goianinha.tab.c"
+#line 1606 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 38: /* EqExpr: EqExpr IGUAL DesigExpr  */
-#line 205 "analisador_sintatico/goianinha.y"
+#line 202 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup("=="), 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no)); }
-#line 1615 "analisador_sintatico/goianinha.tab.c"
+#line 1612 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 39: /* EqExpr: EqExpr DIFERENTE DesigExpr  */
-#line 207 "analisador_sintatico/goianinha.y"
+#line 204 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup("!="), 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no)); }
-#line 1621 "analisador_sintatico/goianinha.tab.c"
+#line 1618 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 40: /* EqExpr: DesigExpr  */
-#line 209 "analisador_sintatico/goianinha.y"
+#line 206 "analisador_sintatico/goianinha.y"
     { (yyval.no) = (yyvsp[0].no); }
-#line 1627 "analisador_sintatico/goianinha.tab.c"
+#line 1624 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 41: /* DesigExpr: DesigExpr MENOR AddExpr  */
-#line 213 "analisador_sintatico/goianinha.y"
+#line 210 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup("<"), 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no)); }
-#line 1633 "analisador_sintatico/goianinha.tab.c"
+#line 1630 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 42: /* DesigExpr: DesigExpr MAIOR AddExpr  */
-#line 215 "analisador_sintatico/goianinha.y"
+#line 212 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup(">"), 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no)); }
-#line 1639 "analisador_sintatico/goianinha.tab.c"
+#line 1636 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 43: /* DesigExpr: DesigExpr MAIORIGUAL AddExpr  */
-#line 217 "analisador_sintatico/goianinha.y"
+#line 214 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup(">="), 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no)); }
-#line 1645 "analisador_sintatico/goianinha.tab.c"
+#line 1642 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 44: /* DesigExpr: DesigExpr MENORIGUAL AddExpr  */
-#line 219 "analisador_sintatico/goianinha.y"
+#line 216 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup("<="), 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no)); }
-#line 1651 "analisador_sintatico/goianinha.tab.c"
+#line 1648 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 45: /* DesigExpr: AddExpr  */
-#line 221 "analisador_sintatico/goianinha.y"
+#line 218 "analisador_sintatico/goianinha.y"
     { (yyval.no) = (yyvsp[0].no); }
-#line 1657 "analisador_sintatico/goianinha.tab.c"
+#line 1654 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 46: /* AddExpr: AddExpr MAIS MulExpr  */
-#line 225 "analisador_sintatico/goianinha.y"
+#line 222 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup("+"), 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no)); }
-#line 1663 "analisador_sintatico/goianinha.tab.c"
+#line 1660 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 47: /* AddExpr: AddExpr MENOS MulExpr  */
-#line 227 "analisador_sintatico/goianinha.y"
+#line 224 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup("-"), 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no)); }
-#line 1669 "analisador_sintatico/goianinha.tab.c"
+#line 1666 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 48: /* AddExpr: MulExpr  */
-#line 229 "analisador_sintatico/goianinha.y"
+#line 226 "analisador_sintatico/goianinha.y"
     { (yyval.no) = (yyvsp[0].no); }
-#line 1675 "analisador_sintatico/goianinha.tab.c"
+#line 1672 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 49: /* MulExpr: MulExpr MULT UnExpr  */
-#line 233 "analisador_sintatico/goianinha.y"
+#line 230 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup("*"), 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no)); }
-#line 1681 "analisador_sintatico/goianinha.tab.c"
+#line 1678 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 50: /* MulExpr: MulExpr DIV UnExpr  */
-#line 235 "analisador_sintatico/goianinha.y"
+#line 232 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup("/"), 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no)); }
-#line 1687 "analisador_sintatico/goianinha.tab.c"
+#line 1684 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 51: /* MulExpr: UnExpr  */
-#line 237 "analisador_sintatico/goianinha.y"
+#line 234 "analisador_sintatico/goianinha.y"
     { (yyval.no) = (yyvsp[0].no); }
-#line 1693 "analisador_sintatico/goianinha.tab.c"
+#line 1690 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 52: /* UnExpr: MENOS PrimExpr  */
-#line 241 "analisador_sintatico/goianinha.y"
+#line 238 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup("-"), 0, TIPO_UNKNOWN, 1, (yyvsp[0].no)); }
-#line 1699 "analisador_sintatico/goianinha.tab.c"
+#line 1696 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 53: /* UnExpr: '!' PrimExpr  */
-#line 243 "analisador_sintatico/goianinha.y"
+#line 240 "analisador_sintatico/goianinha.y"
     { (yyval.no) = criar_no(NODE_EXPR, (yylsp[-1]).first_line, strdup("!"), 0, TIPO_UNKNOWN, 1, (yyvsp[0].no)); }
-#line 1705 "analisador_sintatico/goianinha.tab.c"
+#line 1702 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 54: /* UnExpr: PrimExpr  */
-#line 245 "analisador_sintatico/goianinha.y"
+#line 242 "analisador_sintatico/goianinha.y"
     { (yyval.no) = (yyvsp[0].no); }
-#line 1711 "analisador_sintatico/goianinha.tab.c"
+#line 1708 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 55: /* PrimExpr: ID ABREPAR ListExpr FECHAPAR  */
-#line 249 "analisador_sintatico/goianinha.y"
+#line 246 "analisador_sintatico/goianinha.y"
     {
         ASTNode* idNode = criar_no(NODE_ID, (yylsp[-3]).first_line, (yyvsp[-3].texto), 0, TIPO_UNKNOWN, 0);
         (yyval.no) = criar_no(NODE_EXPR, (yylsp[-3]).first_line, strdup("call"), 0, TIPO_UNKNOWN, 2, idNode, (yyvsp[-1].no));
     }
-#line 1720 "analisador_sintatico/goianinha.tab.c"
+#line 1717 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 56: /* PrimExpr: ID ABREPAR FECHAPAR  */
-#line 254 "analisador_sintatico/goianinha.y"
+#line 251 "analisador_sintatico/goianinha.y"
     {
         ASTNode* idNode = criar_no(NODE_ID, (yylsp[-2]).first_line, (yyvsp[-2].texto), 0, TIPO_UNKNOWN, 0);
         (yyval.no) = criar_no(NODE_EXPR, (yylsp[-2]).first_line, strdup("call"), 0, TIPO_UNKNOWN, 1, idNode);
     }
-#line 1729 "analisador_sintatico/goianinha.tab.c"
+#line 1726 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 57: /* PrimExpr: ID  */
-#line 259 "analisador_sintatico/goianinha.y"
+#line 256 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_ID, (yylsp[0]).first_line, (yyvsp[0].texto), 0, TIPO_UNKNOWN, 0);
     }
-#line 1737 "analisador_sintatico/goianinha.tab.c"
+#line 1734 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 58: /* PrimExpr: CARCONST  */
-#line 263 "analisador_sintatico/goianinha.y"
+#line 260 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_CONST, (yylsp[0]).first_line, NULL, (yyvsp[0].texto)[0], TIPO_CAR, 0);
     }
-#line 1745 "analisador_sintatico/goianinha.tab.c"
+#line 1742 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 59: /* PrimExpr: INTCONST  */
-#line 267 "analisador_sintatico/goianinha.y"
+#line 264 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_CONST, (yylsp[0]).first_line, NULL, atoi((yyvsp[0].texto)), TIPO_INT, 0);
     }
-#line 1753 "analisador_sintatico/goianinha.tab.c"
+#line 1750 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 60: /* PrimExpr: ABREPAR Expr FECHAPAR  */
-#line 271 "analisador_sintatico/goianinha.y"
+#line 268 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = (yyvsp[-1].no);
     }
-#line 1761 "analisador_sintatico/goianinha.tab.c"
+#line 1758 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 61: /* ListExpr: Expr  */
-#line 277 "analisador_sintatico/goianinha.y"
+#line 274 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_LISTA, (yylsp[0]).first_line, strdup("arg_list"), 0, TIPO_UNKNOWN, 1, (yyvsp[0].no));
     }
-#line 1769 "analisador_sintatico/goianinha.tab.c"
+#line 1766 "analisador_sintatico/goianinha.tab.c"
     break;
 
   case 62: /* ListExpr: ListExpr VIRGULA Expr  */
-#line 281 "analisador_sintatico/goianinha.y"
+#line 278 "analisador_sintatico/goianinha.y"
     {
         (yyval.no) = criar_no(NODE_LISTA, (yylsp[-1]).first_line, strdup("arg_list"), 0, TIPO_UNKNOWN, 2, (yyvsp[-2].no), (yyvsp[0].no));
     }
-#line 1777 "analisador_sintatico/goianinha.tab.c"
+#line 1774 "analisador_sintatico/goianinha.tab.c"
     break;
 
 
-#line 1781 "analisador_sintatico/goianinha.tab.c"
+#line 1778 "analisador_sintatico/goianinha.tab.c"
 
       default: break;
     }
@@ -1975,7 +1972,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 286 "analisador_sintatico/goianinha.y"
+#line 283 "analisador_sintatico/goianinha.y"
 
 
 void yyerror(const char *s) {

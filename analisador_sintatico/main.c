@@ -9,7 +9,6 @@ extern int yyparse();
 extern FILE* yyin;
 extern int yylineno;
 
-// NOVO: Removido 'extern' para definir ast_raiz neste arquivo
 ASTNode* ast_raiz; 
 
 int main(int argc, char* argv[]) {
@@ -17,7 +16,6 @@ int main(int argc, char* argv[]) {
         fprintf(stderr, "Uso: %s arquivo_entrada.g [arquivo_saida_mips.asm]\n", argv[0]);
         return 1;
     }
-
 
     yyin = fopen(argv[1], "r");
     if (!yyin) {
@@ -27,7 +25,6 @@ int main(int argc, char* argv[]) {
 
     yylineno = 1;
 
-    
     if (yyparse() == 0) {
         printf("✅ Análise sintática concluída com sucesso.\n");
 
@@ -35,7 +32,6 @@ int main(int argc, char* argv[]) {
         imprimir_ast(ast_raiz, 0);
 
         printf("\n🔎 Iniciando análise semântica:\n");
-        // A função analisar_semantica não retorna TipoDado, apenas percorre.
         analisar_semantica(ast_raiz);
 
         printf("\n⚙️  Gerando código MIPS...\n");

@@ -4,18 +4,11 @@
 #include <string.h>
 #include "goianinha.tab.h"
 
-// Variável yylineno é gerenciada pelo Flex
 extern int yylineno;
-// Variável para armazenar a linha onde um erro começou
 int start_line = 0;
-// Buffer para construir a string
 char string_buf[1024];
-
 %}
 
-/* Declaração de estados exclusivos. 
-  O analisador só pode estar em um estado por vez.
-*/
 %x COMMENT
 %x STRING
 
@@ -35,7 +28,6 @@ char string_buf[1024];
 "execute"           { return EXECUTE; }
 "ou"                { return OU; }
 "e"                 { return E; }
-
 
 [a-zA-Z_][a-zA-Z0-9_]* { yylval.texto = strdup(yytext); return ID; }
 [0-9]+              { yylval.texto = strdup(yytext); return INTCONST; }
@@ -60,25 +52,23 @@ char string_buf[1024];
 "/"                 { return DIV; }
 "!"                 { return '!'; }
 
-[ \t\r]+            { /* Ignora espaços, tabs e carriage return */ }
+[ \t\r]+            { }
 \n                  { yylineno++; }
-
 
 "/*"                { BEGIN(COMMENT); start_line = yylineno; }
 
 <COMMENT>"*/"       { BEGIN(INITIAL); }
 <COMMENT>\n         { yylineno++; }
-<COMMENT>.          { /* Ignora outros caracteres */ }
+<COMMENT>.          { }
 <COMMENT><<EOF>>    { 
                         printf("ERRO: COMENTARIO NAO TERMINA (iniciado na linha %d)\n", start_line); 
                         exit(1); 
                     }
 
-
 "\"" {
     BEGIN(STRING);
     start_line = yylineno;
-    string_buf[0] = '\0'; // Limpa o buffer da string
+    string_buf[0] = '\0';
 }
 
 <STRING>[^\"\n\\]+  { strcat(string_buf, yytext); }
@@ -100,7 +90,6 @@ char string_buf[1024];
     printf("ERRO: STRING NAO TERMINADA (iniciada na linha %d)\n", start_line);
     exit(1);
 }
-
 
 .                   { 
                         printf("ERRO: CARACTERE INVALIDO '%s' na linha %d\n", yytext, yylineno); 

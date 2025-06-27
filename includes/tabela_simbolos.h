@@ -7,7 +7,7 @@
 #define MAX_VARS 100
 #define MAX_FUNCS 100
 #define MAX_PILHA 100
-#define MAX_PARAMS 10 // Limite de parâmetros por função
+#define MAX_PARAMS 10
 
 typedef struct EntradaTabela {
     char nome[MAX_NAME];
@@ -16,12 +16,11 @@ typedef struct EntradaTabela {
     int is_param;
 } EntradaTabela;
 
-// CORREÇÃO: Adicionado array para guardar os tipos dos parâmetros.
 typedef struct EntradaFuncao {
     char nome[MAX_NAME];
     TipoDado tipo_retorno;
     int numero_parametros;
-    TipoDado tipos_parametros[MAX_PARAMS]; // Guarda os tipos de cada parâmetro
+    TipoDado tipos_parametros[MAX_PARAMS];
 } EntradaFuncao;
 
 typedef struct TabelaSimbolos {
@@ -38,9 +37,7 @@ typedef struct PilhaTabelas {
     int topo;
 } PilhaTabelas;
 
-// --- Assinaturas de Funções (o resto permanece igual) ---
 void tabela_inicializar(TabelaSimbolos* tabela);
-// CORREÇÃO: Assinatura atualizada para incluir os tipos dos parâmetros
 void inserir_funcao(TabelaSimbolos* tabela, const char* nome, TipoDado tipo_retorno, int numero_parametros, TipoDado* tipos);
 EntradaTabela* buscar_variavel(TabelaSimbolos* tabela, const char* nome);
 EntradaFuncao* buscar_funcao(TabelaSimbolos* tabela, const char* nome);
@@ -50,7 +47,6 @@ void eliminar_pilha_tabela();
 void criar_escopo();
 void remover_escopo();
 void inserir_variavel(char* nome, TipoDado tipo, int is_param);
-// CORREÇÃO: Assinatura atualizada para incluir os tipos dos parâmetros
 void inserir_funcao_em_escopo(char* nome, TipoDado tipo_retorno, int num_params, TipoDado* tipos_params);
 EntradaTabela* buscar_simbolo(char* nome);
 EntradaFuncao* buscar_funcao_em_escopo(char* nome);

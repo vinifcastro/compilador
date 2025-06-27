@@ -97,11 +97,11 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 18 "analisador_sintatico/goianinha.y"
+#line 15 "analisador_sintatico/goianinha.y"
 
     int valor_int;
     char* texto;
-    struct ASTNode* no; // Usa 'struct ASTNode*' explicitamente
+    struct ASTNode* no;
 
 #line 107 "analisador_sintatico/goianinha.tab.h"
 

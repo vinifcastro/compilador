@@ -4,7 +4,6 @@
 #include <string.h>
 #include "../includes/ast.h"
 
-// NOVO: Adicionado tipo_dado ao criar_no
 ASTNode* criar_no(NodeKind tipo, int linha, char* valor_str, int valor_int, TipoDado tipo_dado, int n_filhos, ...) {
     ASTNode* no = malloc(sizeof(ASTNode));
     if (!no) {
@@ -15,7 +14,7 @@ ASTNode* criar_no(NodeKind tipo, int linha, char* valor_str, int valor_int, Tipo
     no->linha = linha;
     no->valor_str = valor_str ? strdup(valor_str) : NULL;
     no->valor_int = valor_int;
-    no->tipo_dado = tipo_dado; // NOVO: Armazena o tipo de dado
+    no->tipo_dado = tipo_dado;
     no->n_filhos = n_filhos;
     no->filhos = n_filhos ? malloc(sizeof(ASTNode*) * n_filhos) : NULL;
     if (n_filhos > 0 && !no->filhos) {

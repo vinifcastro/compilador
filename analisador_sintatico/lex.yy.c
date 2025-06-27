@@ -519,19 +519,12 @@ char *yytext;
 #include <string.h>
 #include "goianinha.tab.h"
 
-// Variável yylineno é gerenciada pelo Flex
 extern int yylineno;
-// Variável para armazenar a linha onde um erro começou
 int start_line = 0;
-// Buffer para construir a string
 char string_buf[1024];
+#line 526 "analisador_sintatico/lex.yy.c"
 
-#line 530 "analisador_sintatico/lex.yy.c"
-/* Declaração de estados exclusivos. 
-  O analisador só pode estar em um estado por vez.
-*/
-
-#line 535 "analisador_sintatico/lex.yy.c"
+#line 528 "analisador_sintatico/lex.yy.c"
 
 #define INITIAL 0
 #define COMMENT 1
@@ -750,10 +743,10 @@ YY_DECL
 		}
 
 	{
-#line 22 "analisador_sintatico/goianinha.l"
+#line 15 "analisador_sintatico/goianinha.l"
 
 
-#line 757 "analisador_sintatico/lex.yy.c"
+#line 750 "analisador_sintatico/lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -812,214 +805,214 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 24 "analisador_sintatico/goianinha.l"
+#line 17 "analisador_sintatico/goianinha.l"
 { return PROGRAMA; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 25 "analisador_sintatico/goianinha.l"
+#line 18 "analisador_sintatico/goianinha.l"
 { return TK_INT; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 26 "analisador_sintatico/goianinha.l"
+#line 19 "analisador_sintatico/goianinha.l"
 { return TK_CAR; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 27 "analisador_sintatico/goianinha.l"
+#line 20 "analisador_sintatico/goianinha.l"
 { return RETORNE; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 28 "analisador_sintatico/goianinha.l"
+#line 21 "analisador_sintatico/goianinha.l"
 { return LEIA; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 29 "analisador_sintatico/goianinha.l"
+#line 22 "analisador_sintatico/goianinha.l"
 { return ESCREVA; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 30 "analisador_sintatico/goianinha.l"
+#line 23 "analisador_sintatico/goianinha.l"
 { return NOVALINHA; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 31 "analisador_sintatico/goianinha.l"
+#line 24 "analisador_sintatico/goianinha.l"
 { return SE; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 32 "analisador_sintatico/goianinha.l"
+#line 25 "analisador_sintatico/goianinha.l"
 { return ENTAO; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 33 "analisador_sintatico/goianinha.l"
+#line 26 "analisador_sintatico/goianinha.l"
 { return SENAO; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 34 "analisador_sintatico/goianinha.l"
+#line 27 "analisador_sintatico/goianinha.l"
 { return ENQUANTO; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 35 "analisador_sintatico/goianinha.l"
+#line 28 "analisador_sintatico/goianinha.l"
 { return EXECUTE; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 36 "analisador_sintatico/goianinha.l"
+#line 29 "analisador_sintatico/goianinha.l"
 { return OU; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 37 "analisador_sintatico/goianinha.l"
+#line 30 "analisador_sintatico/goianinha.l"
 { return E; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 40 "analisador_sintatico/goianinha.l"
+#line 32 "analisador_sintatico/goianinha.l"
 { yylval.texto = strdup(yytext); return ID; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 41 "analisador_sintatico/goianinha.l"
+#line 33 "analisador_sintatico/goianinha.l"
 { yylval.texto = strdup(yytext); return INTCONST; }
 	YY_BREAK
 case 17:
 /* rule 17 can match eol */
 YY_RULE_SETUP
-#line 42 "analisador_sintatico/goianinha.l"
+#line 34 "analisador_sintatico/goianinha.l"
 { yylval.texto = strdup(yytext); return CARCONST; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 44 "analisador_sintatico/goianinha.l"
+#line 36 "analisador_sintatico/goianinha.l"
 { return IGUAL; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 45 "analisador_sintatico/goianinha.l"
+#line 37 "analisador_sintatico/goianinha.l"
 { return DIFERENTE; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 46 "analisador_sintatico/goianinha.l"
+#line 38 "analisador_sintatico/goianinha.l"
 { return MENORIGUAL; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 47 "analisador_sintatico/goianinha.l"
+#line 39 "analisador_sintatico/goianinha.l"
 { return MAIORIGUAL; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 48 "analisador_sintatico/goianinha.l"
+#line 40 "analisador_sintatico/goianinha.l"
 { return ATRIBUICAO; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 49 "analisador_sintatico/goianinha.l"
+#line 41 "analisador_sintatico/goianinha.l"
 { return MENOR; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 50 "analisador_sintatico/goianinha.l"
+#line 42 "analisador_sintatico/goianinha.l"
 { return MAIOR; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 51 "analisador_sintatico/goianinha.l"
+#line 43 "analisador_sintatico/goianinha.l"
 { return PONTOVIRGULA; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 52 "analisador_sintatico/goianinha.l"
+#line 44 "analisador_sintatico/goianinha.l"
 { return VIRGULA; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 53 "analisador_sintatico/goianinha.l"
+#line 45 "analisador_sintatico/goianinha.l"
 { return ABREPAR; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 54 "analisador_sintatico/goianinha.l"
+#line 46 "analisador_sintatico/goianinha.l"
 { return FECHAPAR; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 55 "analisador_sintatico/goianinha.l"
+#line 47 "analisador_sintatico/goianinha.l"
 { return ABRECHAVE; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 56 "analisador_sintatico/goianinha.l"
+#line 48 "analisador_sintatico/goianinha.l"
 { return FECHACHAVE; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 57 "analisador_sintatico/goianinha.l"
+#line 49 "analisador_sintatico/goianinha.l"
 { return MAIS; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 58 "analisador_sintatico/goianinha.l"
+#line 50 "analisador_sintatico/goianinha.l"
 { return MENOS; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 59 "analisador_sintatico/goianinha.l"
+#line 51 "analisador_sintatico/goianinha.l"
 { return MULT; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 60 "analisador_sintatico/goianinha.l"
+#line 52 "analisador_sintatico/goianinha.l"
 { return DIV; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 61 "analisador_sintatico/goianinha.l"
+#line 53 "analisador_sintatico/goianinha.l"
 { return '!'; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 63 "analisador_sintatico/goianinha.l"
-{ /* Ignora espaços, tabs e carriage return */ }
+#line 55 "analisador_sintatico/goianinha.l"
+{ }
 	YY_BREAK
 case 37:
 /* rule 37 can match eol */
 YY_RULE_SETUP
-#line 64 "analisador_sintatico/goianinha.l"
+#line 56 "analisador_sintatico/goianinha.l"
 { yylineno++; }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 67 "analisador_sintatico/goianinha.l"
+#line 58 "analisador_sintatico/goianinha.l"
 { BEGIN(COMMENT); start_line = yylineno; }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 69 "analisador_sintatico/goianinha.l"
+#line 60 "analisador_sintatico/goianinha.l"
 { BEGIN(INITIAL); }
 	YY_BREAK
 case 40:
 /* rule 40 can match eol */
 YY_RULE_SETUP
-#line 70 "analisador_sintatico/goianinha.l"
+#line 61 "analisador_sintatico/goianinha.l"
 { yylineno++; }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 71 "analisador_sintatico/goianinha.l"
-{ /* Ignora outros caracteres */ }
+#line 62 "analisador_sintatico/goianinha.l"
+{ }
 	YY_BREAK
 case YY_STATE_EOF(COMMENT):
-#line 72 "analisador_sintatico/goianinha.l"
+#line 63 "analisador_sintatico/goianinha.l"
 { 
                         printf("ERRO: COMENTARIO NAO TERMINA (iniciado na linha %d)\n", start_line); 
                         exit(1); 
@@ -1027,36 +1020,36 @@ case YY_STATE_EOF(COMMENT):
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 78 "analisador_sintatico/goianinha.l"
+#line 68 "analisador_sintatico/goianinha.l"
 {
     BEGIN(STRING);
     start_line = yylineno;
-    string_buf[0] = '\0'; // Limpa o buffer da string
+    string_buf[0] = '\0';
 }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 84 "analisador_sintatico/goianinha.l"
+#line 74 "analisador_sintatico/goianinha.l"
 { strcat(string_buf, yytext); }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 85 "analisador_sintatico/goianinha.l"
+#line 75 "analisador_sintatico/goianinha.l"
 { strcat(string_buf, "\n"); }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 86 "analisador_sintatico/goianinha.l"
+#line 76 "analisador_sintatico/goianinha.l"
 { strcat(string_buf, "\t"); }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 87 "analisador_sintatico/goianinha.l"
+#line 77 "analisador_sintatico/goianinha.l"
 { strcat(string_buf, "\""); }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 89 "analisador_sintatico/goianinha.l"
+#line 79 "analisador_sintatico/goianinha.l"
 {
     BEGIN(INITIAL);
     yylval.texto = strdup(string_buf);
@@ -1066,14 +1059,14 @@ YY_RULE_SETUP
 case 48:
 /* rule 48 can match eol */
 YY_RULE_SETUP
-#line 95 "analisador_sintatico/goianinha.l"
+#line 85 "analisador_sintatico/goianinha.l"
 {
     printf("ERRO: CADEIA DE CARACTERES OCUPA MAIS DE UMA LINHA (iniciada na linha %d)\n", start_line);
     exit(1);
 }
 	YY_BREAK
 case YY_STATE_EOF(STRING):
-#line 99 "analisador_sintatico/goianinha.l"
+#line 89 "analisador_sintatico/goianinha.l"
 {
     printf("ERRO: STRING NAO TERMINADA (iniciada na linha %d)\n", start_line);
     exit(1);
@@ -1081,7 +1074,7 @@ case YY_STATE_EOF(STRING):
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 105 "analisador_sintatico/goianinha.l"
+#line 94 "analisador_sintatico/goianinha.l"
 { 
                         printf("ERRO: CARACTERE INVALIDO '%s' na linha %d\n", yytext, yylineno); 
                         exit(1);
@@ -1089,10 +1082,10 @@ YY_RULE_SETUP
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 110 "analisador_sintatico/goianinha.l"
+#line 99 "analisador_sintatico/goianinha.l"
 ECHO;
 	YY_BREAK
-#line 1096 "analisador_sintatico/lex.yy.c"
+#line 1089 "analisador_sintatico/lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2097,7 +2090,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 110 "analisador_sintatico/goianinha.l"
+#line 99 "analisador_sintatico/goianinha.l"
 
 
 int yywrap(void) {

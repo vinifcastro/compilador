@@ -2,23 +2,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// Inclui ast.h no prólogo principal
 #include "../includes/ast.h"
 
-// NOVO: Declaração forward para a struct ASTNode DENTRO do bloco %{ %}
-struct ASTNode; 
+struct ASTNode;
 
-// Declarações globais (extern) para variáveis e funções
-extern int yylex();          // Declaração para a função do Flex
-extern int yylineno;         // Declaração para a variável de linha do Flex
-void yyerror(const char *s); // Declaração para a função de erro do Bison
-extern ASTNode* ast_raiz;    // ASTNode deve ser reconhecido aqui
+extern int yylex();
+extern int yylineno;
+void yyerror(const char *s);
+extern ASTNode* ast_raiz;
 %}
 
 %union {
     int valor_int;
     char* texto;
-    struct ASTNode* no; // Usa 'struct ASTNode*' explicitamente
+    struct ASTNode* no;
 }
 
 %token PROGRAMA TK_INT TK_CAR RETORNE LEIA ESCREVA NOVALINHA SE ENTAO SENAO ENQUANTO EXECUTE
