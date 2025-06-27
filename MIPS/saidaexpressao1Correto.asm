@@ -1,126 +1,78 @@
-# variável: y
-# variável: z
-# variável: v
-# constante: 50
+.text
+.globl main
+
+.data
+_nl: .asciiz "\n"
+
+.text
+addiu $sp, $sp, -4 # Aloca espaco para var
+
+main:
+move $fp, $sp
+addiu $sp, $sp, -4
+sw $t0, 0($sp)
+addiu $sp, $sp, -4
+sw $t0, 0($sp)
+addiu $sp, $sp, -4
+sw $t0, 0($sp)
 li $t0, 50
-# atribuição para x
-# sw $t0, 0($s0)  # salva $t0 na variável
-# variável: x
-# constante: 50
-li $t0, 50
-# atribuição para y
-# sw $t0, 0($s0)  # salva $t0 na variável
-# variável: y
-# constante: 50
-li $t0, 50
-# atribuição para x
-# sw $t0, 0($s0)  # salva $t0 na variável
-# variável: x
-# constante: 50
-li $t0, 50
-# atribuição para z
-# sw $t0, 0($s0)  # salva $t0 na variável
-# variável: z
-# constante: 50
-li $t0, 50
-# atribuição para x
-# sw $t0, 0($s0)  # salva $t0 na variável
-# variável: x
-# constante: 50
-li $t0, 50
-# atribuição para y
-# sw $t0, 0($s0)  # salva $t0 na variável
-# variável: y
-# constante: 50
-li $t0, 50
-# atribuição para x
-# sw $t0, 0($s0)  # salva $t0 na variável
-# variável: x
-# constante: 50
-li $t0, 50
-# variável: x
+lw $t1, 0($sp)
+addiu $sp, $sp, 4
+move $t2, $t0
+move $t0, $t1
+move $t1, $t2
+lw $t1, 0($sp)
+addiu $sp, $sp, 4
+move $t2, $t0
+move $t0, $t1
+move $t1, $t2
+lw $t1, 0($sp)
+addiu $sp, $sp, 4
+move $t2, $t0
+move $t0, $t1
+move $t1, $t2
 move $a0, $t0
 li $v0, 1
 syscall
-# variável: x
-# variável: y
 move $a0, $t0
 li $v0, 1
 syscall
-# variável: y
-# variável: z
 move $a0, $t0
 li $v0, 1
 syscall
-# variável: z
-# variável: x
-move $t1, $t0
-# constante: 2
+la $a0, _nl
+li $v0, 4
+syscall
+addiu $sp, $sp, -4
+sw $t0, 0($sp)
 li $t0, 2
-mul $t0, $t1, $t0
-# variável: x
-# constante: 2
-li $t0, 2
-move $t1, $t0
-# variável: y
-move $t1, $t0
-# constante: 4
+lw $t1, 0($sp)
+addiu $sp, $sp, 4
+move $t2, $t0
+move $t0, $t1
+move $t1, $t2
+mul $t0, $t0, $t1
+addiu $sp, $sp, -4
+sw $t0, 0($sp)
+addiu $sp, $sp, -4
+sw $t0, 0($sp)
 li $t0, 4
-div $t0, $t1, $t0
-# variável: y
-# constante: 4
-li $t0, 4
-sub $t0, $t1, $t0
-# variável: x
-move $t1, $t0
-# constante: 2
-li $t0, 2
-mul $t0, $t1, $t0
-# variável: x
-# constante: 2
-li $t0, 2
-# variável: y
-move $t1, $t0
-# constante: 4
-li $t0, 4
-div $t0, $t1, $t0
-# variável: y
-# constante: 4
-li $t0, 4
+lw $t1, 0($sp)
+addiu $sp, $sp, 4
+move $t2, $t0
+move $t0, $t1
+move $t1, $t2
+div $t0, $t0, $t1
+lw $t1, 0($sp)
+addiu $sp, $sp, 4
+move $t2, $t0
+move $t0, $t1
+move $t1, $t2
+sub $t0, $t0, $t1
 move $a0, $t0
 li $v0, 1
 syscall
-# variável: x
-move $t1, $t0
-# constante: 2
-li $t0, 2
-mul $t0, $t1, $t0
-# variável: x
-# constante: 2
-li $t0, 2
-move $t1, $t0
-# variável: y
-move $t1, $t0
-# constante: 4
-li $t0, 4
-div $t0, $t1, $t0
-# variável: y
-# constante: 4
-li $t0, 4
-sub $t0, $t1, $t0
-# variável: x
-move $t1, $t0
-# constante: 2
-li $t0, 2
-mul $t0, $t1, $t0
-# variável: x
-# constante: 2
-li $t0, 2
-# variável: y
-move $t1, $t0
-# constante: 4
-li $t0, 4
-div $t0, $t1, $t0
-# variável: y
-# constante: 4
-li $t0, 4
+
+# Fim do programa (syscall 10)
+li $v0, 10
+syscall

@@ -44,6 +44,4 @@
         - [1] COMANDO (novalinha)
 
 🔎 Iniciando análise semântica:
-
-⚙️  Gerando código MIPS...
-✅ Código MIPS gerado com sucesso: MIPS/saidateste_erro_tipo_parametro.asm
+ERRO SEMÂNTICO: Incompatibilidade no argumento 1 da chamada da função 'soma'. Esperado tipo 0, mas foi fornecido tipo 1 (linha 1)

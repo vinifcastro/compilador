@@ -1,38 +1,63 @@
-# variável: a
-# variável: b
-# variável: resultado
-# variável: a
-move $t1, $t0
-# variável: b
-add $t0, $t1, $t0
-# variável: a
-# variável: b
-# atribuição para resultado
-# sw $t0, 0($s0)  # salva $t0 na variável
-# variável: resultado
-# variável: a
-move $t1, $t0
-# variável: b
-add $t0, $t1, $t0
-# variável: a
-# variável: b
-# variável: resultado
-# variável: x
-# variável: soma
-# constante: 3
+.text
+.globl main
+
+.data
+_nl: .asciiz "\n"
+
+.text
+
+soma:
+sw $ra, -4($sp)
+sw $fp, -8($sp)
+move $fp, $sp
+addiu $sp, $sp, -8
+addiu $sp, $sp, -4 # Aloca espaco para var
+addiu $sp, $sp, -4
+sw $t0, 0($sp)
+addiu $sp, $sp, -4
+sw $t0, 0($sp)
+lw $t1, 0($sp)
+addiu $sp, $sp, 4
+move $t2, $t0
+move $t0, $t1
+move $t1, $t2
+add $t0, $t0, $t1
+lw $t1, 0($sp)
+addiu $sp, $sp, 4
+move $t2, $t0
+move $t0, $t1
+move $t1, $t2
+move $v0, $t0
+j soma_exit
+soma_exit:
+move $sp, $fp
+lw $ra, -4($sp)
+lw $fp, -8($sp)
+jr $ra
+
+main:
+move $fp, $sp
+addiu $sp, $sp, -4 # Aloca espaco para var
+addiu $sp, $sp, -4
+sw $t0, 0($sp)
+addiu $sp, $sp, -4
+sw $t0, 0($sp)
 li $t0, 3
-# constante: 4
 li $t0, 4
-# atribuição para x
-# sw $t0, 0($s0)  # salva $t0 na variável
-# variável: x
-# variável: soma
-# constante: 3
-li $t0, 3
-# constante: 4
-li $t0, 4
-# variável: x
+lw $t1, 0($sp)
+addiu $sp, $sp, 4
+move $t2, $t0
+move $t0, $t1
+move $t1, $t2
+lw $t1, 0($sp)
+addiu $sp, $sp, 4
+move $t2, $t0
+move $t0, $t1
+move $t1, $t2
 move $a0, $t0
 li $v0, 1
 syscall
-# variável: x
+
+# Fim do programa (syscall 10)
+li $v0, 10
+syscall

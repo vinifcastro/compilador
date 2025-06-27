@@ -25,4 +25,4 @@
           - [1] ID (x, tipo=3)
 
 🔎 Iniciando análise semântica:
-ERRO SEMÂNTICO: Atribuição de tipos incompativeis: 'x' (tipo 0) = Expressão (tipo 1) (linha 1)
+ERRO SEMÂNTICO: Atribuição com tipos incompatíveis (linha 1)
