@@ -1,42 +1,42 @@
 ✅ Análise sintática concluída com sucesso.
 
 📍 Árvore Sintática Abstrata (AST):
-- [1] PROGRAMA
-  - [1] FUNCAO (duplicado, tipo_retorno=0)
-    - [1] FUNCAO (, tipo_retorno=3)
+- [12] PROGRAMA
+  - [8] FUNCAO (duplicado, tipo_retorno=0)
+    - [6] FUNCAO (, tipo_retorno=3)
       - [1] LISTA
         - [1] ID (x, tipo=0)
-      - [1] BLOCO
-        - [1] LISTA
-          - [1] DECLVAR (, tipo=1)
+      - [6] BLOCO
+        - [3] LISTA
+          - [3] DECLVAR (, tipo=1)
             - [1] ID (x, tipo=1)
         - [1] LISTA
           - [1] LISTA
-            - [1] LISTA
-              - [1] COMANDO (expr;)
+            - [3] LISTA
+              - [3] COMANDO (expr;)
                 - [1] EXPR (=, tipo=3)
-                  - [1] ID (x, tipo=3)
-                  - [1] CONST (39, tipo=1)
-            - [1] COMANDO (escreva)
-              - [1] ID (x, tipo=3)
-          - [1] COMANDO (retorne)
-            - [1] CONST (0, tipo=0)
-  - [1] BLOCO
-    - [1] BLOCO
-      - [1] LISTA
-        - [1] DECLVAR (, tipo=0)
+                  - [3] ID (x, tipo=3)
+                  - [3] CONST (39, tipo=1)
+            - [4] COMANDO (escreva)
+              - [4] ID (x, tipo=3)
+          - [5] COMANDO (retorne)
+            - [5] CONST (0, tipo=0)
+  - [12] BLOCO
+    - [12] BLOCO
+      - [10] LISTA
+        - [10] DECLVAR (, tipo=0)
           - [1] ID (x, tipo=0)
       - [1] LISTA
-        - [1] LISTA
-          - [1] COMANDO (expr;)
+        - [10] LISTA
+          - [10] COMANDO (expr;)
             - [1] EXPR (=, tipo=3)
-              - [1] ID (x, tipo=3)
-              - [1] CONST (2, tipo=0)
-        - [1] COMANDO (expr;)
-          - [1] EXPR (call, tipo=3)
-            - [1] ID (duplicado, tipo=3)
-            - [1] LISTA
-              - [1] ID (x, tipo=3)
+              - [10] ID (x, tipo=3)
+              - [10] CONST (2, tipo=0)
+        - [11] COMANDO (expr;)
+          - [11] EXPR (call, tipo=3)
+            - [11] ID (duplicado, tipo=3)
+            - [11] LISTA
+              - [11] ID (x, tipo=3)
 
 🔎 Iniciando análise semântica:
 

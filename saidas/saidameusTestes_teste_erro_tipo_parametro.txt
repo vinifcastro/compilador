@@ -1,47 +1,47 @@
 ✅ Análise sintática concluída com sucesso.
 
 📍 Árvore Sintática Abstrata (AST):
-- [1] PROGRAMA
-  - [1] FUNCAO (soma, tipo_retorno=0)
-    - [1] FUNCAO (, tipo_retorno=3)
+- [14] PROGRAMA
+  - [5] FUNCAO (soma, tipo_retorno=0)
+    - [3] FUNCAO (, tipo_retorno=3)
       - [1] LISTA
         - [1] ID (a, tipo=0)
         - [1] LISTA
           - [1] ID (b, tipo=0)
-      - [1] BLOCO
-        - [1] LISTA
-          - [1] COMANDO (retorne)
+      - [3] BLOCO
+        - [2] LISTA
+          - [2] COMANDO (retorne)
             - [1] EXPR (+, tipo=3)
-              - [1] ID (a, tipo=3)
-              - [1] ID (b, tipo=3)
-  - [1] BLOCO
-    - [1] BLOCO
-      - [1] LISTA
-        - [1] DECLVAR (, tipo=0)
+              - [2] ID (a, tipo=3)
+              - [2] ID (b, tipo=3)
+  - [14] BLOCO
+    - [14] BLOCO
+      - [8] LISTA
+        - [8] DECLVAR (, tipo=0)
           - [1] ID (resultado, tipo=0)
-        - [1] LISTA
-          - [1] DECLVAR (, tipo=1)
+        - [8] LISTA
+          - [8] DECLVAR (, tipo=1)
             - [1] ID (c, tipo=1)
       - [1] LISTA
         - [1] LISTA
           - [1] LISTA
-            - [1] LISTA
-              - [1] COMANDO (expr;)
+            - [8] LISTA
+              - [8] COMANDO (expr;)
                 - [1] EXPR (=, tipo=3)
-                  - [1] ID (c, tipo=3)
-                  - [1] CONST (39, tipo=1)
-            - [1] COMANDO (expr;)
+                  - [8] ID (c, tipo=3)
+                  - [8] CONST (39, tipo=1)
+            - [10] COMANDO (expr;)
               - [1] EXPR (=, tipo=3)
-                - [1] ID (resultado, tipo=3)
-                - [1] EXPR (call, tipo=3)
-                  - [1] ID (soma, tipo=3)
+                - [10] ID (resultado, tipo=3)
+                - [10] EXPR (call, tipo=3)
+                  - [10] ID (soma, tipo=3)
                   - [1] LISTA
-                    - [1] LISTA
-                      - [1] CONST (5, tipo=0)
-                    - [1] ID (c, tipo=3)
-          - [1] COMANDO (escreva)
-            - [1] ID (resultado, tipo=3)
-        - [1] COMANDO (novalinha)
+                    - [10] LISTA
+                      - [10] CONST (5, tipo=0)
+                    - [10] ID (c, tipo=3)
+          - [12] COMANDO (escreva)
+            - [12] ID (resultado, tipo=3)
+        - [13] COMANDO (novalinha)
 
 🔎 Iniciando análise semântica:
-ERRO SEMÂNTICO: Incompatibilidade no argumento 1 da chamada da função 'soma'. Esperado tipo 0, mas foi fornecido tipo 1 (linha 1)
+ERRO SEMÂNTICO: Incompatibilidade no argumento 1 da chamada da função 'soma'. Esperado tipo 0, mas foi fornecido tipo 1 (linha 10)

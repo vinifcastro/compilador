@@ -1,17 +1,17 @@
 ✅ Análise sintática concluída com sucesso.
 
 📍 Árvore Sintática Abstrata (AST):
-- [1] PROGRAMA
-  - [1] BLOCO
-    - [1] BLOCO
-      - [1] LISTA
-        - [1] DECLVAR (, tipo=0)
+- [7] PROGRAMA
+  - [7] BLOCO
+    - [7] BLOCO
+      - [6] LISTA
+        - [6] DECLVAR (, tipo=0)
           - [1] ID (x, tipo=0)
-      - [1] LISTA
-        - [1] COMANDO (expr;)
+      - [6] LISTA
+        - [6] COMANDO (expr;)
           - [1] EXPR (=, tipo=3)
-            - [1] ID (x, tipo=3)
-            - [1] CONST (10, tipo=0)
+            - [6] ID (x, tipo=3)
+            - [6] CONST (10, tipo=0)
 
 🔎 Iniciando análise semântica:
 

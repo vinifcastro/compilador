@@ -1,39 +1,39 @@
 ✅ Análise sintática concluída com sucesso.
 
 📍 Árvore Sintática Abstrata (AST):
-- [1] PROGRAMA
-  - [1] DECLVAR (x, tipo=0)
-  - [1] BLOCO
-    - [1] BLOCO
+- [17] PROGRAMA
+  - [3] DECLVAR (x, tipo=0)
+  - [17] BLOCO
+    - [17] BLOCO
       - [1] LISTA
         - [1] LISTA
           - [1] LISTA
             - [1] LISTA
-              - [1] LISTA
-                - [1] COMANDO (expr;)
+              - [4] LISTA
+                - [4] COMANDO (expr;)
                   - [1] EXPR (=, tipo=3)
-                    - [1] ID (x, tipo=3)
-                    - [1] CONST (10, tipo=0)
-              - [1] BLOCO
-                - [1] LISTA
-                  - [1] DECLVAR (, tipo=0)
+                    - [4] ID (x, tipo=3)
+                    - [4] CONST (10, tipo=0)
+              - [12] BLOCO
+                - [8] LISTA
+                  - [8] DECLVAR (, tipo=0)
                     - [1] ID (x, tipo=0)
                 - [1] LISTA
                   - [1] LISTA
                     - [1] LISTA
-                      - [1] LISTA
-                        - [1] COMANDO (expr;)
+                      - [8] LISTA
+                        - [8] COMANDO (expr;)
                           - [1] EXPR (=, tipo=3)
-                            - [1] ID (x, tipo=3)
-                            - [1] CONST (99, tipo=0)
-                      - [1] COMANDO (escreva_str)
-                    - [1] COMANDO (escreva)
-                      - [1] ID (x, tipo=3)
-                  - [1] COMANDO (novalinha)
-            - [1] COMANDO (escreva_str)
-          - [1] COMANDO (escreva)
-            - [1] ID (x, tipo=3)
-        - [1] COMANDO (novalinha)
+                            - [8] ID (x, tipo=3)
+                            - [8] CONST (99, tipo=0)
+                      - [9] COMANDO (escreva_str)
+                    - [10] COMANDO (escreva)
+                      - [10] ID (x, tipo=3)
+                  - [11] COMANDO (novalinha)
+            - [14] COMANDO (escreva_str)
+          - [15] COMANDO (escreva)
+            - [15] ID (x, tipo=3)
+        - [16] COMANDO (novalinha)
 
 🔎 Iniciando análise semântica:
 

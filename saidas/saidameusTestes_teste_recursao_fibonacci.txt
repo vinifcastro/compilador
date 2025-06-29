@@ -1,58 +1,58 @@
 ✅ Análise sintática concluída com sucesso.
 
 📍 Árvore Sintática Abstrata (AST):
-- [1] PROGRAMA
-  - [1] FUNCAO (fib, tipo_retorno=0)
-    - [1] FUNCAO (, tipo_retorno=3)
+- [16] PROGRAMA
+  - [8] FUNCAO (fib, tipo_retorno=0)
+    - [6] FUNCAO (, tipo_retorno=3)
       - [1] LISTA
         - [1] ID (n, tipo=0)
-      - [1] BLOCO
-        - [1] LISTA
-          - [1] COMANDO (se_senao)
+      - [6] BLOCO
+        - [5] LISTA
+          - [5] COMANDO (se_senao)
             - [1] EXPR (<=, tipo=3)
-              - [1] ID (n, tipo=3)
-              - [1] CONST (1, tipo=0)
-            - [1] COMANDO (retorne)
-              - [1] ID (n, tipo=3)
-            - [1] COMANDO (retorne)
+              - [2] ID (n, tipo=3)
+              - [2] CONST (1, tipo=0)
+            - [3] COMANDO (retorne)
+              - [3] ID (n, tipo=3)
+            - [5] COMANDO (retorne)
               - [1] EXPR (+, tipo=3)
-                - [1] EXPR (call, tipo=3)
-                  - [1] ID (fib, tipo=3)
-                  - [1] LISTA
+                - [5] EXPR (call, tipo=3)
+                  - [5] ID (fib, tipo=3)
+                  - [5] LISTA
                     - [1] EXPR (-, tipo=3)
-                      - [1] ID (n, tipo=3)
-                      - [1] CONST (1, tipo=0)
-                - [1] EXPR (call, tipo=3)
-                  - [1] ID (fib, tipo=3)
-                  - [1] LISTA
+                      - [5] ID (n, tipo=3)
+                      - [5] CONST (1, tipo=0)
+                - [5] EXPR (call, tipo=3)
+                  - [5] ID (fib, tipo=3)
+                  - [5] LISTA
                     - [1] EXPR (-, tipo=3)
-                      - [1] ID (n, tipo=3)
-                      - [1] CONST (2, tipo=0)
-  - [1] BLOCO
-    - [1] BLOCO
-      - [1] LISTA
-        - [1] DECLVAR (, tipo=0)
+                      - [5] ID (n, tipo=3)
+                      - [5] CONST (2, tipo=0)
+  - [16] BLOCO
+    - [16] BLOCO
+      - [10] LISTA
+        - [10] DECLVAR (, tipo=0)
           - [1] ID (valor, tipo=0)
       - [1] LISTA
         - [1] LISTA
           - [1] LISTA
             - [1] LISTA
               - [1] LISTA
-                - [1] LISTA
-                  - [1] COMANDO (expr;)
+                - [10] LISTA
+                  - [10] COMANDO (expr;)
                     - [1] EXPR (=, tipo=3)
-                      - [1] ID (valor, tipo=3)
-                      - [1] CONST (8, tipo=0)
-                - [1] COMANDO (escreva_str)
-              - [1] COMANDO (escreva)
-                - [1] ID (valor, tipo=3)
-            - [1] COMANDO (escreva_str)
-          - [1] COMANDO (escreva)
-            - [1] EXPR (call, tipo=3)
-              - [1] ID (fib, tipo=3)
-              - [1] LISTA
-                - [1] ID (valor, tipo=3)
-        - [1] COMANDO (novalinha)
+                      - [10] ID (valor, tipo=3)
+                      - [10] CONST (8, tipo=0)
+                - [11] COMANDO (escreva_str)
+              - [12] COMANDO (escreva)
+                - [12] ID (valor, tipo=3)
+            - [13] COMANDO (escreva_str)
+          - [14] COMANDO (escreva)
+            - [14] EXPR (call, tipo=3)
+              - [14] ID (fib, tipo=3)
+              - [14] LISTA
+                - [14] ID (valor, tipo=3)
+        - [15] COMANDO (novalinha)
 
 🔎 Iniciando análise semântica:
 

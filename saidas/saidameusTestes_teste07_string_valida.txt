@@ -1,11 +1,11 @@
 ✅ Análise sintática concluída com sucesso.
 
 📍 Árvore Sintática Abstrata (AST):
-- [1] PROGRAMA
-  - [1] BLOCO
-    - [1] BLOCO
-      - [1] LISTA
-        - [1] COMANDO (escreva_str)
+- [3] PROGRAMA
+  - [3] BLOCO
+    - [3] BLOCO
+      - [2] LISTA
+        - [2] COMANDO (escreva_str)
 
 🔎 Iniciando análise semântica:
 

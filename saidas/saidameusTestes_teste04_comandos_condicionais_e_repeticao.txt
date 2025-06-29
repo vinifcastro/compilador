@@ -1,37 +1,37 @@
 ✅ Análise sintática concluída com sucesso.
 
 📍 Árvore Sintática Abstrata (AST):
-- [1] PROGRAMA
-  - [1] BLOCO
-    - [1] BLOCO
-      - [1] LISTA
-        - [1] DECLVAR (, tipo=0)
+- [9] PROGRAMA
+  - [9] BLOCO
+    - [9] BLOCO
+      - [3] LISTA
+        - [3] DECLVAR (, tipo=0)
           - [1] ID (x, tipo=0)
       - [1] LISTA
-        - [1] LISTA
-          - [1] COMANDO (expr;)
+        - [3] LISTA
+          - [3] COMANDO (expr;)
             - [1] EXPR (=, tipo=3)
-              - [1] ID (x, tipo=3)
-              - [1] CONST (0, tipo=0)
-        - [1] COMANDO (enquanto)
+              - [3] ID (x, tipo=3)
+              - [3] CONST (0, tipo=0)
+        - [8] COMANDO (enquanto)
           - [1] EXPR (<, tipo=3)
-            - [1] ID (x, tipo=3)
-            - [1] CONST (3, tipo=0)
-          - [1] BLOCO
+            - [4] ID (x, tipo=3)
+            - [4] CONST (3, tipo=0)
+          - [8] BLOCO
             - [1] LISTA
-              - [1] LISTA
-                - [1] COMANDO (se_senao)
+              - [6] LISTA
+                - [6] COMANDO (se_senao)
                   - [1] EXPR (==, tipo=3)
-                    - [1] ID (x, tipo=3)
-                    - [1] CONST (1, tipo=0)
-                  - [1] COMANDO (escreva_str)
-                  - [1] COMANDO (escreva_str)
-              - [1] COMANDO (expr;)
+                    - [5] ID (x, tipo=3)
+                    - [5] CONST (1, tipo=0)
+                  - [5] COMANDO (escreva_str)
+                  - [6] COMANDO (escreva_str)
+              - [7] COMANDO (expr;)
                 - [1] EXPR (=, tipo=3)
-                  - [1] ID (x, tipo=3)
+                  - [7] ID (x, tipo=3)
                   - [1] EXPR (+, tipo=3)
-                    - [1] ID (x, tipo=3)
-                    - [1] CONST (1, tipo=0)
+                    - [7] ID (x, tipo=3)
+                    - [7] CONST (1, tipo=0)
 
 🔎 Iniciando análise semântica:
 

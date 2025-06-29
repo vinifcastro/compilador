@@ -1,28 +1,28 @@
 ✅ Análise sintática concluída com sucesso.
 
 📍 Árvore Sintática Abstrata (AST):
-- [1] PROGRAMA
-  - [1] BLOCO
-    - [1] BLOCO
-      - [1] LISTA
-        - [1] DECLVAR (, tipo=0)
+- [7] PROGRAMA
+  - [7] BLOCO
+    - [7] BLOCO
+      - [4] LISTA
+        - [4] DECLVAR (, tipo=0)
           - [1] ID (x, tipo=0)
-        - [1] LISTA
-          - [1] DECLVAR (, tipo=1)
+        - [4] LISTA
+          - [4] DECLVAR (, tipo=1)
             - [1] ID (y, tipo=1)
       - [1] LISTA
         - [1] LISTA
-          - [1] LISTA
-            - [1] COMANDO (expr;)
+          - [4] LISTA
+            - [4] COMANDO (expr;)
               - [1] EXPR (=, tipo=3)
-                - [1] ID (y, tipo=3)
-                - [1] CONST (39, tipo=1)
-          - [1] COMANDO (expr;)
+                - [4] ID (y, tipo=3)
+                - [4] CONST (39, tipo=1)
+          - [5] COMANDO (expr;)
             - [1] EXPR (=, tipo=3)
-              - [1] ID (x, tipo=3)
-              - [1] ID (y, tipo=3)
-        - [1] COMANDO (escreva)
-          - [1] ID (x, tipo=3)
+              - [5] ID (x, tipo=3)
+              - [5] ID (y, tipo=3)
+        - [6] COMANDO (escreva)
+          - [6] ID (x, tipo=3)
 
 🔎 Iniciando análise semântica:
 ERRO SEMÂNTICO: Atribuição com tipos incompatíveis (linha 1)

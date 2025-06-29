@@ -1,35 +1,35 @@
 ✅ Análise sintática concluída com sucesso.
 
 📍 Árvore Sintática Abstrata (AST):
-- [1] PROGRAMA
-  - [1] FUNCAO (fatorial, tipo_retorno=1)
-    - [1] FUNCAO (, tipo_retorno=3)
-      - [1] LISTA
+- [24] PROGRAMA
+  - [11] FUNCAO (fatorial, tipo_retorno=1)
+    - [9] FUNCAO (, tipo_retorno=3)
+      - [2] LISTA
         - [1] ID (n, tipo=0)
-      - [1] BLOCO
-        - [1] LISTA
-          - [1] DECLVAR (, tipo=0)
+      - [9] BLOCO
+        - [4] LISTA
+          - [4] DECLVAR (, tipo=0)
             - [1] ID (n, tipo=0)
-        - [1] LISTA
-          - [1] COMANDO (se_senao)
+        - [8] LISTA
+          - [8] COMANDO (se_senao)
             - [1] EXPR (==, tipo=3)
-              - [1] ID (n, tipo=3)
-              - [1] CONST (0, tipo=0)
-            - [1] COMANDO (retorne)
-              - [1] CONST (1, tipo=0)
-            - [1] COMANDO (retorne)
+              - [4] ID (n, tipo=3)
+              - [4] CONST (0, tipo=0)
+            - [6] COMANDO (retorne)
+              - [6] CONST (1, tipo=0)
+            - [8] COMANDO (retorne)
               - [1] EXPR (*, tipo=3)
-                - [1] ID (n, tipo=3)
-                - [1] EXPR (call, tipo=3)
-                  - [1] ID (fatorial, tipo=3)
-                  - [1] LISTA
+                - [8] ID (n, tipo=3)
+                - [8] EXPR (call, tipo=3)
+                  - [8] ID (fatorial, tipo=3)
+                  - [8] LISTA
                     - [1] EXPR (-, tipo=3)
-                      - [1] ID (n, tipo=3)
-                      - [1] CONST (1, tipo=0)
-  - [1] BLOCO
-    - [1] BLOCO
-      - [1] LISTA
-        - [1] DECLVAR (, tipo=0)
+                      - [8] ID (n, tipo=3)
+                      - [8] CONST (1, tipo=0)
+  - [24] BLOCO
+    - [24] BLOCO
+      - [13] LISTA
+        - [13] DECLVAR (, tipo=0)
           - [1] ID (n, tipo=0)
       - [1] LISTA
         - [1] LISTA
@@ -37,35 +37,35 @@
             - [1] LISTA
               - [1] LISTA
                 - [1] LISTA
-                  - [1] LISTA
-                    - [1] COMANDO (expr;)
+                  - [13] LISTA
+                    - [13] COMANDO (expr;)
                       - [1] EXPR (=, tipo=3)
-                        - [1] ID (n, tipo=3)
+                        - [13] ID (n, tipo=3)
                         - [1] EXPR (-, tipo=3)
-                          - [1] CONST (1, tipo=0)
-                          - [1] CONST (0, tipo=0)
-                  - [1] COMANDO (enquanto)
+                          - [13] CONST (1, tipo=0)
+                          - [13] CONST (0, tipo=0)
+                  - [18] COMANDO (enquanto)
                     - [1] EXPR (>, tipo=3)
-                      - [1] ID (n, tipo=3)
-                      - [1] CONST (0, tipo=0)
-                    - [1] BLOCO
+                      - [14] ID (n, tipo=3)
+                      - [14] CONST (0, tipo=0)
+                    - [18] BLOCO
                       - [1] LISTA
                         - [1] LISTA
-                          - [1] LISTA
-                            - [1] COMANDO (escreva_str)
-                          - [1] COMANDO (novalinha)
-                        - [1] COMANDO (leia)
+                          - [15] LISTA
+                            - [15] COMANDO (escreva_str)
+                          - [16] COMANDO (novalinha)
+                        - [17] COMANDO (leia)
                           - [1] ID (n, tipo=3)
-                - [1] COMANDO (escreva_str)
-              - [1] COMANDO (escreva)
-                - [1] ID (n, tipo=3)
-            - [1] COMANDO (escreva_str)
-          - [1] COMANDO (escreva)
-            - [1] EXPR (call, tipo=3)
-              - [1] ID (fatorial, tipo=3)
-              - [1] LISTA
-                - [1] ID (n, tipo=3)
-        - [1] COMANDO (novalinha)
+                - [19] COMANDO (escreva_str)
+              - [20] COMANDO (escreva)
+                - [20] ID (n, tipo=3)
+            - [21] COMANDO (escreva_str)
+          - [22] COMANDO (escreva)
+            - [22] EXPR (call, tipo=3)
+              - [22] ID (fatorial, tipo=3)
+              - [22] LISTA
+                - [22] ID (n, tipo=3)
+        - [23] COMANDO (novalinha)
 
 🔎 Iniciando análise semântica:
-ERRO SEMÂNTICO: Retorno incompatível na função 'fatorial' (linha 1)
+ERRO SEMÂNTICO: Retorno incompatível na função 'fatorial' (linha 6)

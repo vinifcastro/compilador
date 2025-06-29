@@ -1,32 +1,32 @@
 ✅ Análise sintática concluída com sucesso.
 
 📍 Árvore Sintática Abstrata (AST):
-- [1] PROGRAMA
-  - [1] FUNCAO (fatorial, tipo_retorno=0)
-    - [1] FUNCAO (, tipo_retorno=3)
-      - [1] LISTA
+- [25] PROGRAMA
+  - [10] FUNCAO (fatorial, tipo_retorno=0)
+    - [8] FUNCAO (, tipo_retorno=3)
+      - [2] LISTA
         - [1] ID (n, tipo=0)
-      - [1] BLOCO
-        - [1] LISTA
-          - [1] COMANDO (se_senao)
+      - [8] BLOCO
+        - [7] LISTA
+          - [7] COMANDO (se_senao)
             - [1] EXPR (==, tipo=3)
-              - [1] ID (n, tipo=3)
-              - [1] CONST (0, tipo=0)
-            - [1] COMANDO (retorne)
-              - [1] CONST (1, tipo=0)
-            - [1] COMANDO (retorne)
+              - [3] ID (n, tipo=3)
+              - [3] CONST (0, tipo=0)
+            - [5] COMANDO (retorne)
+              - [5] CONST (1, tipo=0)
+            - [7] COMANDO (retorne)
               - [1] EXPR (*, tipo=3)
-                - [1] ID (n, tipo=3)
-                - [1] EXPR (call, tipo=3)
-                  - [1] ID (fatorial, tipo=3)
-                  - [1] LISTA
+                - [7] ID (n, tipo=3)
+                - [7] EXPR (call, tipo=3)
+                  - [7] ID (fatorial, tipo=3)
+                  - [7] LISTA
                     - [1] EXPR (-, tipo=3)
-                      - [1] ID (n, tipo=3)
-                      - [1] CONST (1, tipo=0)
-  - [1] BLOCO
-    - [1] BLOCO
-      - [1] LISTA
-        - [1] DECLVAR (, tipo=0)
+                      - [7] ID (n, tipo=3)
+                      - [7] CONST (1, tipo=0)
+  - [25] BLOCO
+    - [25] BLOCO
+      - [12] LISTA
+        - [12] DECLVAR (, tipo=0)
           - [1] ID (n, tipo=0)
       - [1] LISTA
         - [1] LISTA
@@ -34,35 +34,35 @@
             - [1] LISTA
               - [1] LISTA
                 - [1] LISTA
-                  - [1] LISTA
-                    - [1] COMANDO (expr;)
+                  - [12] LISTA
+                    - [12] COMANDO (expr;)
                       - [1] EXPR (=, tipo=3)
-                        - [1] ID (n, tipo=3)
+                        - [12] ID (n, tipo=3)
                         - [1] EXPR (-, tipo=3)
-                          - [1] CONST (1, tipo=0)
-                          - [1] CONST (0, tipo=0)
-                  - [1] COMANDO (enquanto)
+                          - [12] CONST (1, tipo=0)
+                          - [12] CONST (0, tipo=0)
+                  - [17] COMANDO (enquanto)
                     - [1] EXPR (<, tipo=3)
-                      - [1] ID (n, tipo=3)
-                      - [1] CONST (0, tipo=0)
-                    - [1] BLOCO
+                      - [13] ID (n, tipo=3)
+                      - [13] CONST (0, tipo=0)
+                    - [17] BLOCO
                       - [1] LISTA
                         - [1] LISTA
-                          - [1] LISTA
-                            - [1] COMANDO (escreva_str)
-                          - [1] COMANDO (novalinha)
-                        - [1] COMANDO (leia)
+                          - [14] LISTA
+                            - [14] COMANDO (escreva_str)
+                          - [15] COMANDO (novalinha)
+                        - [16] COMANDO (leia)
                           - [1] ID (n, tipo=3)
-                - [1] COMANDO (escreva_str)
-              - [1] COMANDO (escreva)
-                - [1] ID (n, tipo=3)
-            - [1] COMANDO (escreva_str)
-          - [1] COMANDO (escreva)
-            - [1] EXPR (call, tipo=3)
-              - [1] ID (fatorial, tipo=3)
-              - [1] LISTA
-                - [1] ID (n, tipo=3)
-        - [1] COMANDO (novalinha)
+                - [19] COMANDO (escreva_str)
+              - [20] COMANDO (escreva)
+                - [20] ID (n, tipo=3)
+            - [21] COMANDO (escreva_str)
+          - [22] COMANDO (escreva)
+            - [22] EXPR (call, tipo=3)
+              - [22] ID (fatorial, tipo=3)
+              - [22] LISTA
+                - [22] ID (n, tipo=3)
+        - [23] COMANDO (novalinha)
 
 🔎 Iniciando análise semântica:
 

@@ -1,45 +1,45 @@
 ✅ Análise sintática concluída com sucesso.
 
 📍 Árvore Sintática Abstrata (AST):
-- [1] PROGRAMA
-  - [1] FUNCAO (soma, tipo_retorno=0)
-    - [1] FUNCAO (, tipo_retorno=3)
+- [11] PROGRAMA
+  - [7] FUNCAO (soma, tipo_retorno=0)
+    - [5] FUNCAO (, tipo_retorno=3)
       - [1] LISTA
         - [1] ID (a, tipo=0)
         - [1] LISTA
           - [1] ID (b, tipo=0)
-      - [1] BLOCO
-        - [1] LISTA
-          - [1] DECLVAR (, tipo=0)
+      - [5] BLOCO
+        - [3] LISTA
+          - [3] DECLVAR (, tipo=0)
             - [1] ID (resultado, tipo=0)
         - [1] LISTA
-          - [1] LISTA
-            - [1] COMANDO (expr;)
+          - [3] LISTA
+            - [3] COMANDO (expr;)
               - [1] EXPR (=, tipo=3)
-                - [1] ID (resultado, tipo=3)
+                - [3] ID (resultado, tipo=3)
                 - [1] EXPR (+, tipo=3)
-                  - [1] ID (a, tipo=3)
-                  - [1] ID (b, tipo=3)
-          - [1] COMANDO (retorne)
-            - [1] ID (resultado, tipo=3)
-  - [1] BLOCO
-    - [1] BLOCO
-      - [1] LISTA
-        - [1] DECLVAR (, tipo=0)
+                  - [3] ID (a, tipo=3)
+                  - [3] ID (b, tipo=3)
+          - [4] COMANDO (retorne)
+            - [4] ID (resultado, tipo=3)
+  - [11] BLOCO
+    - [11] BLOCO
+      - [9] LISTA
+        - [9] DECLVAR (, tipo=0)
           - [1] ID (x, tipo=0)
       - [1] LISTA
-        - [1] LISTA
-          - [1] COMANDO (expr;)
+        - [9] LISTA
+          - [9] COMANDO (expr;)
             - [1] EXPR (=, tipo=3)
-              - [1] ID (x, tipo=3)
-              - [1] EXPR (call, tipo=3)
-                - [1] ID (soma, tipo=3)
+              - [9] ID (x, tipo=3)
+              - [9] EXPR (call, tipo=3)
+                - [9] ID (soma, tipo=3)
                 - [1] LISTA
-                  - [1] LISTA
-                    - [1] CONST (3, tipo=0)
-                  - [1] CONST (4, tipo=0)
-        - [1] COMANDO (escreva)
-          - [1] ID (x, tipo=3)
+                  - [9] LISTA
+                    - [9] CONST (3, tipo=0)
+                  - [9] CONST (4, tipo=0)
+        - [10] COMANDO (escreva)
+          - [10] ID (x, tipo=3)
 
 🔎 Iniciando análise semântica:
 

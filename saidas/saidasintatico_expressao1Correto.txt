@@ -1,16 +1,16 @@
 ✅ Análise sintática concluída com sucesso.
 
 📍 Árvore Sintática Abstrata (AST):
-- [1] PROGRAMA
-  - [1] DECLVAR (x, tipo=0)
+- [7] PROGRAMA
+  - [2] DECLVAR (x, tipo=0)
     - [1] LISTA
       - [1] ID (y, tipo=3)
       - [1] LISTA
         - [1] ID (z, tipo=3)
         - [1] LISTA
           - [1] ID (v, tipo=3)
-  - [1] BLOCO
-    - [1] BLOCO
+  - [7] BLOCO
+    - [7] BLOCO
       - [1] LISTA
         - [1] LISTA
           - [1] LISTA
@@ -18,32 +18,32 @@
               - [1] LISTA
                 - [1] LISTA
                   - [1] LISTA
-                    - [1] LISTA
-                      - [1] COMANDO (expr;)
+                    - [3] LISTA
+                      - [3] COMANDO (expr;)
                         - [1] EXPR (=, tipo=3)
-                          - [1] ID (z, tipo=3)
+                          - [3] ID (z, tipo=3)
                           - [1] EXPR (=, tipo=3)
-                            - [1] ID (y, tipo=3)
+                            - [3] ID (y, tipo=3)
                             - [1] EXPR (=, tipo=3)
-                              - [1] ID (x, tipo=3)
-                              - [1] CONST (50, tipo=0)
-                    - [1] COMANDO (escreva)
-                      - [1] ID (x, tipo=3)
-                  - [1] COMANDO (escreva_str)
-                - [1] COMANDO (escreva)
-                  - [1] ID (y, tipo=3)
-              - [1] COMANDO (escreva_str)
-            - [1] COMANDO (escreva)
-              - [1] ID (z, tipo=3)
-          - [1] COMANDO (novalinha)
-        - [1] COMANDO (escreva)
+                              - [3] ID (x, tipo=3)
+                              - [3] CONST (50, tipo=0)
+                    - [4] COMANDO (escreva)
+                      - [4] ID (x, tipo=3)
+                  - [4] COMANDO (escreva_str)
+                - [4] COMANDO (escreva)
+                  - [4] ID (y, tipo=3)
+              - [4] COMANDO (escreva_str)
+            - [4] COMANDO (escreva)
+              - [4] ID (z, tipo=3)
+          - [5] COMANDO (novalinha)
+        - [6] COMANDO (escreva)
           - [1] EXPR (-, tipo=3)
             - [1] EXPR (*, tipo=3)
-              - [1] ID (x, tipo=3)
-              - [1] CONST (2, tipo=0)
+              - [6] ID (x, tipo=3)
+              - [6] CONST (2, tipo=0)
             - [1] EXPR (/, tipo=3)
-              - [1] ID (y, tipo=3)
-              - [1] CONST (4, tipo=0)
+              - [6] ID (y, tipo=3)
+              - [6] CONST (4, tipo=0)
 
 🔎 Iniciando análise semântica:
 

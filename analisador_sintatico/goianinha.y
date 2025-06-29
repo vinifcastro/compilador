@@ -36,20 +36,20 @@ extern ASTNode* ast_raiz;
 
 Programa: DeclFuncVar DeclProg
     {
-        ast_raiz = criar_no(NODE_PROGRAMA, @1.first_line, NULL, 0, TIPO_VOID, 2, $1, $2);
+        ast_raiz = criar_no(NODE_PROGRAMA, yylineno, NULL, 0, TIPO_VOID, 2, $1, $2);
         (yyval.no) = ast_raiz;
     }
 ;
 
 DeclFuncVar: Tipo ID DeclVar PONTOVIRGULA DeclFuncVar
     {
-        ASTNode* atual = criar_no(NODE_DECLVAR, @1.first_line, $2, 0, $1->tipo_dado, 1, $3);
-        (yyval.no) = $5 ? criar_no(NODE_LISTA, @1.first_line, NULL, 0, TIPO_UNKNOWN, 2, atual, $5) : atual;
+        ASTNode* atual = criar_no(NODE_DECLVAR, yylineno, $2, 0, $1->tipo_dado, 1, $3);
+        (yyval.no) = $5 ? criar_no(NODE_LISTA, yylineno, NULL, 0, TIPO_UNKNOWN, 2, atual, $5) : atual;
     }
 | Tipo ID DeclFunc DeclFuncVar
     {
-        ASTNode* atual = criar_no(NODE_FUNCAO, @1.first_line, $2, 0, $1->tipo_dado, 1, $3);
-        (yyval.no) = $4 ? criar_no(NODE_LISTA, @1.first_line, NULL, 0, TIPO_UNKNOWN, 2, atual, $4) : atual;
+        ASTNode* atual = criar_no(NODE_FUNCAO, yylineno, $2, 0, $1->tipo_dado, 1, $3);
+        (yyval.no) = $4 ? criar_no(NODE_LISTA, yylineno, NULL, 0, TIPO_UNKNOWN, 2, atual, $4) : atual;
     }
 | %empty
     {
@@ -59,20 +59,20 @@ DeclFuncVar: Tipo ID DeclVar PONTOVIRGULA DeclFuncVar
 
 DeclProg: PROGRAMA Bloco
     {
-        (yyval.no) = criar_no(NODE_BLOCO, @1.first_line, strdup("programa"), 0, TIPO_VOID, 1, $2);
+        (yyval.no) = criar_no(NODE_BLOCO, yylineno, strdup("programa"), 0, TIPO_VOID, 1, $2);
     }
 ;
 
 Tipo: TK_INT
-    { (yyval.no) = criar_no(NODE_ID, @1.first_line, strdup("int"), 0, TIPO_INT, 0); }
+    { (yyval.no) = criar_no(NODE_ID, yylineno, strdup("int"), 0, TIPO_INT, 0); }
 | TK_CAR
-    { (yyval.no) = criar_no(NODE_ID, @1.first_line, strdup("car"), 0, TIPO_CAR, 0); }
+    { (yyval.no) = criar_no(NODE_ID, yylineno, strdup("car"), 0, TIPO_CAR, 0); }
 ;
 
 DeclVar: VIRGULA ID DeclVar
     {
         ASTNode* idNode = criar_no(NODE_ID, @2.first_line, $2, 0, TIPO_UNKNOWN, 0);
-        (yyval.no) = criar_no(NODE_LISTA, @1.first_line, NULL, 0, TIPO_UNKNOWN, 2, idNode, $3);
+        (yyval.no) = criar_no(NODE_LISTA, yylineno, NULL, 0, TIPO_UNKNOWN, 2, idNode, $3);
     }
 | %empty
     {
@@ -82,7 +82,7 @@ DeclVar: VIRGULA ID DeclVar
 
 DeclFunc: ABREPAR ListaParametros FECHAPAR Bloco
     {
-        (yyval.no) = criar_no(NODE_FUNCAO, @1.first_line, NULL, 0, TIPO_UNKNOWN, 2, $2, $4);
+        (yyval.no) = criar_no(NODE_FUNCAO, yylineno, NULL, 0, TIPO_UNKNOWN, 2, $2, $4);
     }
 ;
 
@@ -95,18 +95,18 @@ ListaParametros: %empty
 ListaParametrosCont: Tipo ID
     {
         ASTNode* idNode = criar_no(NODE_ID, @2.first_line, $2, 0, $1->tipo_dado, 0);
-        (yyval.no) = criar_no(NODE_LISTA, @1.first_line, strdup("param_list"), 0, TIPO_UNKNOWN, 1, idNode);
+        (yyval.no) = criar_no(NODE_LISTA, yylineno, strdup("param_list"), 0, TIPO_UNKNOWN, 1, idNode);
     }
 | Tipo ID VIRGULA ListaParametrosCont
     {
         ASTNode* idNode = criar_no(NODE_ID, @2.first_line, $2, 0, $1->tipo_dado, 0);
-        (yyval.no) = criar_no(NODE_LISTA, @1.first_line, strdup("param_list"), 0, TIPO_UNKNOWN, 2, idNode, $4);
+        (yyval.no) = criar_no(NODE_LISTA, yylineno, strdup("param_list"), 0, TIPO_UNKNOWN, 2, idNode, $4);
     }
 ;
 
 Bloco: ABRECHAVE ListaDeclVar ListaComando FECHACHAVE
     {
-        (yyval.no) = criar_no(NODE_BLOCO, @1.first_line, NULL, 0, TIPO_VOID, 2, $2, $3);
+        (yyval.no) = criar_no(NODE_BLOCO, yylineno, NULL, 0, TIPO_VOID, 2, $2, $3);
     }
 ;
 
@@ -115,14 +115,14 @@ ListaDeclVar: %empty
 | Tipo ID DeclVar PONTOVIRGULA ListaDeclVar
     {
         ASTNode* idNode = criar_no(NODE_ID, @2.first_line, $2, 0, $1->tipo_dado, 0);
-        ASTNode* decl = criar_no(NODE_DECLVAR, @1.first_line, NULL, 0, $1->tipo_dado, 2, idNode, $3);
-        (yyval.no) = criar_no(NODE_LISTA, @1.first_line, NULL, 0, TIPO_UNKNOWN, 2, decl, $5);
+        ASTNode* decl = criar_no(NODE_DECLVAR, yylineno, NULL, 0, $1->tipo_dado, 2, idNode, $3);
+        (yyval.no) = criar_no(NODE_LISTA, yylineno, NULL, 0, TIPO_UNKNOWN, 2, decl, $5);
     }
 ;
 
 ListaComando: Comando
     {
-        (yyval.no) = criar_no(NODE_LISTA, @1.first_line, NULL, 0, TIPO_UNKNOWN, 1, $1);
+        (yyval.no) = criar_no(NODE_LISTA, yylineno, NULL, 0, TIPO_UNKNOWN, 1, $1);
     }
 | ListaComando Comando
     {
@@ -132,44 +132,44 @@ ListaComando: Comando
 
 Comando: PONTOVIRGULA
     {
-        (yyval.no) = criar_no(NODE_CMD, @1.first_line, strdup(";"), 0, TIPO_VOID, 0);
+        (yyval.no) = criar_no(NODE_CMD, yylineno, strdup(";"), 0, TIPO_VOID, 0);
     }
 | Expr PONTOVIRGULA
     {
-        (yyval.no) = criar_no(NODE_CMD, @1.first_line, strdup("expr;"), 0, TIPO_VOID, 1, $1);
+        (yyval.no) = criar_no(NODE_CMD, yylineno, strdup("expr;"), 0, TIPO_VOID, 1, $1);
     }
 | RETORNE Expr PONTOVIRGULA
     {
-        (yyval.no) = criar_no(NODE_CMD, @1.first_line, strdup("retorne"), 0, TIPO_VOID, 1, $2);
+        (yyval.no) = criar_no(NODE_CMD, yylineno, strdup("retorne"), 0, TIPO_VOID, 1, $2);
     }
 | LEIA ID PONTOVIRGULA
     {
         ASTNode* idNode = criar_no(NODE_ID, @2.first_line, $2, 0, TIPO_UNKNOWN, 0);
-        (yyval.no) = criar_no(NODE_CMD, @1.first_line, strdup("leia"), 0, TIPO_VOID, 1, idNode);
+        (yyval.no) = criar_no(NODE_CMD, yylineno, strdup("leia"), 0, TIPO_VOID, 1, idNode);
     }
 | ESCREVA Expr PONTOVIRGULA
     {
-        (yyval.no) = criar_no(NODE_CMD, @1.first_line, strdup("escreva"), 0, TIPO_VOID, 1, $2);
+        (yyval.no) = criar_no(NODE_CMD, yylineno, strdup("escreva"), 0, TIPO_VOID, 1, $2);
     }
 | ESCREVA STRINGCONST PONTOVIRGULA
     {
-        (yyval.no) = criar_no(NODE_CMD, @1.first_line, strdup("escreva_str"), 0, TIPO_VOID, 0);
+        (yyval.no) = criar_no(NODE_CMD, yylineno, strdup("escreva_str"), 0, TIPO_VOID, 0);
     }
 | NOVALINHA PONTOVIRGULA
     {
-        (yyval.no) = criar_no(NODE_CMD, @1.first_line, strdup("novalinha"), 0, TIPO_VOID, 0);
+        (yyval.no) = criar_no(NODE_CMD, yylineno, strdup("novalinha"), 0, TIPO_VOID, 0);
     }
 | SE ABREPAR Expr FECHAPAR ENTAO Comando
     {
-        (yyval.no) = criar_no(NODE_CMD, @1.first_line, strdup("se"), 0, TIPO_VOID, 2, $3, $6);
+        (yyval.no) = criar_no(NODE_CMD, yylineno, strdup("se"), 0, TIPO_VOID, 2, $3, $6);
     }
 | SE ABREPAR Expr FECHAPAR ENTAO Comando SENAO Comando
     {
-        (yyval.no) = criar_no(NODE_CMD, @1.first_line, strdup("se_senao"), 0, TIPO_VOID, 3, $3, $6, $8);
+        (yyval.no) = criar_no(NODE_CMD, yylineno, strdup("se_senao"), 0, TIPO_VOID, 3, $3, $6, $8);
     }
 | ENQUANTO ABREPAR Expr FECHAPAR EXECUTE Comando
     {
-        (yyval.no) = criar_no(NODE_CMD, @1.first_line, strdup("enquanto"), 0, TIPO_VOID, 2, $3, $6);
+        (yyval.no) = criar_no(NODE_CMD, yylineno, strdup("enquanto"), 0, TIPO_VOID, 2, $3, $6);
     }
 | Bloco
     {
@@ -181,7 +181,7 @@ Expr: OrExpr
     { (yyval.no) = $1; }
 | ID ATRIBUICAO Expr
     {
-        ASTNode* idNode = criar_no(NODE_ID, @1.first_line, $1, 0, TIPO_UNKNOWN, 0);
+        ASTNode* idNode = criar_no(NODE_ID, yylineno, $1, 0, TIPO_UNKNOWN, 0);
         (yyval.no) = criar_no(NODE_EXPR, @2.first_line, strdup("="), 0, TIPO_UNKNOWN, 2, idNode, $3);
     }
 ;
@@ -235,34 +235,34 @@ MulExpr: MulExpr MULT UnExpr
 ;
 
 UnExpr: MENOS PrimExpr
-    { (yyval.no) = criar_no(NODE_EXPR, @1.first_line, strdup("-"), 0, TIPO_UNKNOWN, 1, $2); }
+    { (yyval.no) = criar_no(NODE_EXPR, yylineno, strdup("-"), 0, TIPO_UNKNOWN, 1, $2); }
 | '!' PrimExpr
-    { (yyval.no) = criar_no(NODE_EXPR, @1.first_line, strdup("!"), 0, TIPO_UNKNOWN, 1, $2); }
+    { (yyval.no) = criar_no(NODE_EXPR, yylineno, strdup("!"), 0, TIPO_UNKNOWN, 1, $2); }
 | PrimExpr
     { (yyval.no) = $1; }
 ;
 
 PrimExpr: ID ABREPAR ListExpr FECHAPAR
     {
-        ASTNode* idNode = criar_no(NODE_ID, @1.first_line, $1, 0, TIPO_UNKNOWN, 0);
-        (yyval.no) = criar_no(NODE_EXPR, @1.first_line, strdup("call"), 0, TIPO_UNKNOWN, 2, idNode, $3);
+        ASTNode* idNode = criar_no(NODE_ID, yylineno, $1, 0, TIPO_UNKNOWN, 0);
+        (yyval.no) = criar_no(NODE_EXPR, yylineno, strdup("call"), 0, TIPO_UNKNOWN, 2, idNode, $3);
     }
 | ID ABREPAR FECHAPAR
     {
-        ASTNode* idNode = criar_no(NODE_ID, @1.first_line, $1, 0, TIPO_UNKNOWN, 0);
-        (yyval.no) = criar_no(NODE_EXPR, @1.first_line, strdup("call"), 0, TIPO_UNKNOWN, 1, idNode);
+        ASTNode* idNode = criar_no(NODE_ID, yylineno, $1, 0, TIPO_UNKNOWN, 0);
+        (yyval.no) = criar_no(NODE_EXPR, yylineno, strdup("call"), 0, TIPO_UNKNOWN, 1, idNode);
     }
 | ID
     {
-        (yyval.no) = criar_no(NODE_ID, @1.first_line, $1, 0, TIPO_UNKNOWN, 0);
+        (yyval.no) = criar_no(NODE_ID, yylineno, $1, 0, TIPO_UNKNOWN, 0);
     }
 | CARCONST
     {
-        (yyval.no) = criar_no(NODE_CONST, @1.first_line, NULL, $1[0], TIPO_CAR, 0);
+        (yyval.no) = criar_no(NODE_CONST, yylineno, NULL, $1[0], TIPO_CAR, 0);
     }
 | INTCONST
     {
-        (yyval.no) = criar_no(NODE_CONST, @1.first_line, NULL, atoi($1), TIPO_INT, 0);
+        (yyval.no) = criar_no(NODE_CONST, yylineno, NULL, atoi($1), TIPO_INT, 0);
     }
 | ABREPAR Expr FECHAPAR
     {
@@ -272,7 +272,7 @@ PrimExpr: ID ABREPAR ListExpr FECHAPAR
 
 ListExpr: Expr
     {
-        (yyval.no) = criar_no(NODE_LISTA, @1.first_line, strdup("arg_list"), 0, TIPO_UNKNOWN, 1, $1);
+        (yyval.no) = criar_no(NODE_LISTA, yylineno, strdup("arg_list"), 0, TIPO_UNKNOWN, 1, $1);
     }
 | ListExpr VIRGULA Expr
     {
