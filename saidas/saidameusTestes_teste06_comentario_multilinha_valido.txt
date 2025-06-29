@@ -16,4 +16,4 @@
 🔎 Iniciando análise semântica:
 
 ⚙️  Gerando código MIPS...
-✅ Código MIPS gerado com sucesso: MIPS/saidateste06_comentario_multilinha_valido.asm
+✅ Código MIPS gerado com sucesso: MIPS/saidameusTestes_teste06_comentario_multilinha_valido.asm

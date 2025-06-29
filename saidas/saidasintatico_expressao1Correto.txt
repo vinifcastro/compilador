@@ -48,4 +48,4 @@
 🔎 Iniciando análise semântica:
 
 ⚙️  Gerando código MIPS...
-✅ Código MIPS gerado com sucesso: MIPS/saidaexpressao1Correto.asm
+✅ Código MIPS gerado com sucesso: MIPS/saidasintatico_expressao1Correto.asm

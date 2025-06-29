@@ -57,4 +57,4 @@
 🔎 Iniciando análise semântica:
 
 ⚙️  Gerando código MIPS...
-✅ Código MIPS gerado com sucesso: MIPS/saidateste_recursao_fibonacci.asm
+✅ Código MIPS gerado com sucesso: MIPS/saidameusTestes_teste_recursao_fibonacci.asm

@@ -44,4 +44,4 @@
 🔎 Iniciando análise semântica:
 
 ⚙️  Gerando código MIPS...
-✅ Código MIPS gerado com sucesso: MIPS/saidateste02_funcao_com_parametros.asm
+✅ Código MIPS gerado com sucesso: MIPS/saidameusTestes_teste02_funcao_com_parametros.asm

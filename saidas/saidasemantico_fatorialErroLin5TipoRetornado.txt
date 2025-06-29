@@ -2,7 +2,7 @@
 
 📍 Árvore Sintática Abstrata (AST):
 - [1] PROGRAMA
-  - [1] FUNCAO (fatorial, tipo_retorno=0)
+  - [1] FUNCAO (fatorial, tipo_retorno=1)
     - [1] FUNCAO (, tipo_retorno=3)
       - [1] LISTA
         - [1] ID (n, tipo=0)
@@ -42,7 +42,7 @@
                           - [1] CONST (1, tipo=0)
                           - [1] CONST (0, tipo=0)
                   - [1] COMANDO (enquanto)
-                    - [1] EXPR (<, tipo=3)
+                    - [1] EXPR (>, tipo=3)
                       - [1] ID (n, tipo=3)
                       - [1] CONST (0, tipo=0)
                     - [1] BLOCO
@@ -65,6 +65,4 @@
         - [1] COMANDO (novalinha)
 
 🔎 Iniciando análise semântica:
-
-⚙️  Gerando código MIPS...
-✅ Código MIPS gerado com sucesso: MIPS/saidafatorial.asm
+ERRO SEMÂNTICO: Retorno incompatível na função 'fatorial' (linha 1)
